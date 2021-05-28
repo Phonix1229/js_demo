@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            判断语句 if
+                单分支 if
+                双分支 if...else
+                多分支 if...else if...else if ...else
+        
+        */
+        var a = 3;
+        var b = 2;
+
+        // 声明变量 a、b，且赋值 a 和 b 都等于5；当 a 等于 b 时，重新对 b 赋值为10，并弹出 b 的新值
+        var a = 5, b = 5;
+        if (a === b) {
+            b = 10;
+        }
+        /* alert(b); */
+        console.log(b)
+
+        // 【双分支】声明变量 a赋值为100；当 a 大于 50 时，弹出“a真大”，否则弹出“a真小”
+        a = 100;
+        if (a > 50) {
+            /* alert("a真大"); */
+            console.log("a真大");
+        } else {
+            /* alert("a真小"); */
+            console.log("a真小");
+        }
+
+
+        // 【双分支】y值和x值相关。X大于等于3时，y值为2。X小于3时，y值为1
+        a = 3;
+        b = 2;
+
+        if (a >= 3) {
+            b = 2;
+        } else {
+            b = 1;
+        }
+        console.log(b)
+
+
+
+        // 【双分支】如果x大于y成立，则x值为y值加1，否则x值为y值减1
+        if (a > b) {
+            a = b + 1;
+        } else {
+            a = b - 1;
+        }
+        console.log(a)
+
+
+
+        // 【双分支】如果x大于y或者x小于z成立，则x值为z值，否则x值为y值
+        var x = 3, y = 4, z = 5;
+        if (x > y || x < z) {
+            x = z;
+        } else {
+            x = y;
+        }
+        console.log(x);
+
+
+        // 【多分支】如果x值为3，y值为2，如果x值大于3，y值为1，如果x值小于3，y值为4
+        x = 3;
+        y = 2;
+        if (x > 3) {
+            y = 1;
+        } else if (x < 3) {
+            y = 4;
+        } else {
+            y = 1;
+        }
+        console.log(y);
+
+
+        // 【多分支】x值为2，y值为1，如果x值比2小，y值为0，如果x值比10大，y值为10，如果x值小于4且大于3，y值为5，其他情况y为3
+        x = 2;
+        y = 1;
+        if (x < 2) {
+            y = 0;
+        } else if (x > 10) {
+            y = 10;
+        } else if (x < 4 && x > 3){
+            y=5;
+        }else{
+            y=3;
+        }
+        console.log(y)
+
+
+    </script>
+</body>
+
+</html>

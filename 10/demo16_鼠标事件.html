@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width:500px;
+            height: 500px;
+            background-color:pink;
+            overflow:hidden;
+        }
+        #outer div{
+            height: 100px;
+            margin:100px 0;
+            background-color:orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+
+    <script>
+
+        /* 
+            鼠标事件：
+                mousedown:鼠标按下事件
+                mouseup:鼠标抬起时间
+                mousemove:鼠标移动事件
+                mouseover:鼠标移入事件(会触发冒泡)
+                mouseout:鼠标移出事件(会触发冒泡)
+                mouseenter:鼠标移入事件
+                mouseleave:鼠标移出事件
+        
+        
+        */
+
+
+        var oOuter = document.getElementById("outer");
+
+        //鼠标按下
+        oOuter.onmousedown = function (){
+            console.log("鼠标按下")
+        }
+        //鼠标抬起
+        oOuter.onmouseup = function (){
+            console.log("鼠标抬起")
+        }
+        
+
+        //鼠标移动
+        /* oOuter.onmousemove = function (){
+            console.log("鼠标移动")
+        } */
+
+
+        //下面两个事件，如果移动到子元素中，算是一次移出事件
+        //鼠标移入
+        /* oOuter.onmouseover = function (){
+            console.log("鼠标移入")
+        }
+        //鼠标移出
+        oOuter.onmouseout = function (){
+            console.log("鼠标移出")
+        } */
+
+
+
+        //鼠标移入
+        oOuter.onmouseenter = function (){
+            console.log("鼠标移入")
+        }
+        oOuter.onmouseleave= function (){
+            console.log("鼠标移出")
+        }
+    </script>
+</body>
+
+</html>

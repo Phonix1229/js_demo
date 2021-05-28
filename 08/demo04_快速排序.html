@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            快速排序
+        */
+
+        var arr = [3, 5, 1, 4, 2, 6, 8, 5, 9, 4];
+
+
+        function fn1(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+            var center = arr.pop();
+            var left = [];
+            var right = [];
+
+            arr.forEach(function (item, index) {
+                if (item < center) {
+                    left.push(item);
+                } else {
+                    right.push(item);
+                }
+            });
+            
+            var newArr = fn1(left).concat(center, fn1(right));
+            return newArr;
+        }
+        var re = fn1(arr);
+        console.log(re)
+        /* console.log(re); */
+    </script>
+</body>
+
+</html>

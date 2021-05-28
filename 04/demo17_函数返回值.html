@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            函数的执行:
+                功能1：执行某段代码，只要把代码执行完成就可以了，不需要返回结果
+                功能2：代码执行完成后，得到一个结果，把结果返回，我们拿到结果可以继续使用。
+        
+        
+        */
+
+
+        //功能1：执行某段代码，不需要返回结果
+        function fn1() {
+            console.log("嘻嘻");
+            console.log("欢迎来到德莱联盟")
+        }
+
+        //当获取函数返回值，而函数没有返回值时，返回undefined
+        var re = fn1();
+        console.log(re);
+
+
+
+
+        //功能2：代码执行完成后，返回一个结果
+        //计算两个值的乘积
+        function fn2(a, b) {
+
+            //直接打印是我们调试使用的，无法拿到结果
+            console.log(a * b);
+
+            //先执行return后面的语句，再返回
+            // return a * b;
+
+            //如果想要拿到函数的返回结果，需要使用return返回值
+            var f = a * b;
+            return f;
+        }
+
+
+        //在函数有返回值的情况下，我们需要拿到这个函数的返回值。
+        var v = fn2(2, 3);
+        console.log(v);
+
+
+        /* 
+
+            return语句：
+                1.函数返回值
+                2.退出函数
+
+        */
+
+        function fn3() {
+            console.log(1);
+            console.log(2);
+            return;
+            console.log(3);
+            console.log(4);
+        }
+        fn3();
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            手写instanceof：
+                myInstanceof(A, B):
+                    判断B的原型对象是否在A的原型链上
+    
+        */
+
+
+        function myInstanceof(A, B) {
+            //先获取A一开始的原型链
+            var _A = A.__proto__;
+            //获取B的原型对象
+            var _B = B.prototype;
+            //循环加判断_A是否等于null，如果等于null则不进入循环
+            while (_A) {
+                //判断B的原型对象是否在A的原型链上
+                if (_A === _B) {
+                    return true;
+                }
+                _A = _A.__proto__;
+            }
+            //如果while执行完成之后也没有返回true，则说明B的原型对象不在A的原型链上，返回false
+            return false;
+        }
+
+        console.log(myInstanceof(Object, Function))
+    </script>
+</body>
+
+</html>

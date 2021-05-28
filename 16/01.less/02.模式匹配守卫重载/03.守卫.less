@@ -1,0 +1,17 @@
+.mixin(@q){
+    //无守卫
+    height:100px;
+}
+
+.mixin(@q) when(@q>10){
+    background-color: yellow;
+}
+
+.mixin(@q) when(@q<=10),(@q>100){
+    background-color: green;
+}
+
+.box{
+    // .mixin(99)
+    .mixin(101)
+}

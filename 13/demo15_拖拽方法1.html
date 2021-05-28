@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: sandybrown;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        var oBox = document.querySelector("#box");
+
+        oBox.onmousedown = function (e) {
+            //获取开始box的left和top
+            var boxLocation = {
+                left: oBox.offsetLeft,
+                top: oBox.offsetTop
+            }
+            //获取按下的时候，鼠标的位置
+            var startLocation = {
+                x: e.clientX,
+                y: e.clientY
+            }
+
+            //绑定鼠标移动事件
+            document.onmousemove = function (e) {
+                //鼠标移动的时候，实时获取鼠标的位置
+                var moveLocation = {
+                    x: e.clientX,
+                    y: e.clientY
+                }
+
+                //计算，移动后的位置 - 鼠标按下的位置 + 开始box的left和top
+                var l = moveLocation.x - startLocation.x + boxLocation.left
+                var t = moveLocation.y - startLocation.y + boxLocation.top
+                // 临界值
+                if (l <= 0) {
+                    l = 0;
+                } else if (l >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                    l = document.documentElement.clientWidth - oBox.offsetWidth;
+                }
+                if (t <= 0) {
+                    t = 0;
+                } else if (t >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                    t = document.documentElement.clientHeight - oBox.offsetHeight;
+                }
+                oBox.style.left = l + "px";
+                oBox.style.top = t + "px";
+            }
+            //当鼠标抬起的时候，清除掉鼠标移动事件和抬起事件
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

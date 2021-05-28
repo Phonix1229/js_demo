@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            函数的参数有形参和实参
+                形参：在声明函数时，需要预定形参，形参写在声明函数时的小括号里面，多个形参用逗号隔开。形参也属于标识符
+
+                实参：实参就是在调用函数时，实际传入的参数，多个实参用逗号隔开
+
+                注意：形参只在当前函数中生效。
+                
+        
+        */
+
+
+        //声明一个函数
+        // 在下面代码中，name,age,relation就是形参
+        function fn1(name, age, relation) {
+            console.log("我是" + name);
+            console.log(age + "岁")
+            console.log("我是你" + relation)
+        }
+
+        //调用函数时，传递的实参
+        fn1("许帅比", 18, "爸爸");
+
+
+        // 形参与实参匹配问题
+        // 如果实参比形参少,那么多出来的形参就是undefined
+        // 如果实参比形参多,多出来的实参会被忽略掉。可以使用arguments获取所有的实参
+        function fn2(name, relation, haha) {
+            console.log("我叫" + name);
+            console.log("我是你" + relation)
+            console.log("嘻嘻" + haha)
+        }
+        fn2("帅哥", "babi");
+        fn2("帅哥", "babi", "哈哈", "123", "爱你");
+
+
+
+        // 函数表达式传参
+        var fn3 = function (a, b, c) {
+            console.log(a + b, c);
+        }
+        fn3(1, 2, 3);
+
+
+        // 实例化Function构造函数传参
+        // Function可以接受多个参数，前面的参数都是形参，最后一个参数是函数体的代码。
+        var fn4 = new Function("a","b","c","console.log(a,b,c);console.log('hello')");
+        fn4("嘻嘻", "哈哈", 5);
+    </script>
+</body>
+
+</html>

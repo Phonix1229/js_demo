@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        //普通数组
+        var arr1 = [1, 2, 3];
+        console.log(arr1);
+        //可以通过下标的方式获取数组的值
+        console.log(arr1[1]);
+        //中括号操作符中是可以进行运算的
+        console.log(arr1[1 + 1]);
+        //就是获取对象没有的属性，返回undefined
+        console.log(arr1[5]);// undefined 
+
+
+        //多维数组
+        var arr2 = [1, 2, 3, [4, 5]];//二维数组
+        console.log(arr2);
+        var arr3 = [1, 2, [3, [5, 6, [7]]]];//四维数组
+        console.log(arr3);
+
+        //读取多维数组的值
+        console.log(arr2[3]); // [4,5]
+        console.log(arr2[3][1]); // 5
+
+        console.log(arr3[2][1][2]); // [7]
+        console.log(arr3[2][1][2][0]); // 7
+
+
+
+        //空位数组
+        //数组内部如果以逗号结尾，则忽略，不会当作一个值
+        var arr4 = [1, 2, , 3, 4,];
+        console.log(arr4);
+        //空位数组的空位的值是undefined
+        console.log(arr4[2]); // undefined
+
+
+        //伪类数组 （伪数组、类数组）
+        //它不是数组，只不过是像数组而已
+        //伪类数组其实是一个对象，但是符合两个特征：1.key是从0开始自然递增的  2.拥有length属性表示长度
+        var arr5 = {
+            0: "a",
+            1: "b",
+            2: "c",
+            3: "1",
+            4: "2",
+            length: 5
+        }
+        console.log(arr5);
+        //伪类数组的获取和数组类似
+        console.log(arr5[4]);//2
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            border: 2px solid red;
+            margin: 50px;
+            padding: 10px;
+            position: relative;
+        }
+
+        #inner {
+            width: 300px;
+            height: 300px;
+            background-color: khaki;
+            border: 2px solid red;
+            margin: 50px;
+            padding: 10px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            border: 2px solid red;
+            margin: 50px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="box"></div>
+        </div>
+    </div>
+
+    <script>
+
+        /* 
+            offsetLeft
+                获取元素的边框外侧到  最近一个定位父级元素 的边框内侧的距离
+                如果没有定位父级元素，则获取到的是元素到文档边缘的距离
+        */
+       
+        var oOuter = document.getElementById("outer")
+        var oInner = document.getElementById("inner")
+        var oBox = document.getElementById("box")
+
+        console.log(oOuter, oInner, oBox)
+
+        //oOuter到文档边缘的距离
+        console.log(oOuter.offsetLeft);//58  oOuter的margin-left  +  body的margin-left
+        
+        //oBox的边框外侧到最近一个定位父级元素(oOuter)的边框内测的距离
+        console.log(oBox.offsetLeft);//122  50+10+2+50+10
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            typeof，检测数据类型并返回
+            语法为：typeof(数据)或typeof 数据
+
+
+            typeof不能完全正确检测出数据类型
+            typeof可以检测出来的类型：number , string , boolean , object , undefined,function
+            可以正确检测出来的类型：number , string , boolean , underfined
+            
+
+            typeof五种基本数据类型：number , string , boolean , undefined , null
+            一种复杂类型:object(数组、对象、函数)
+
+        */
+        var a = 1; //number
+        var b = "ccc"; //string
+        var c; //undefined
+        var d = []; //object
+        var e = {} //object
+        var f = null; //object
+        var g = function () { } //function
+        var h = true; //boolean
+        console.log(typeof a);
+        console.log(typeof b);
+        console.log(typeof c);
+        console.log(typeof d);
+        console.log(typeof e);
+        console.log(typeof f);
+        console.log(typeof g);
+        console.log(typeof h);
+    </script>
+</body>
+
+</html>

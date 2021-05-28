@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #con {
+            resize: none;
+            width: 500px;
+            height: 300px;
+            outline: none;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="con"></textarea>
+    <p>还可以是输入<span id="num">50</span>字</p>
+
+    <script>
+
+        var oCon = document.getElementById("con");
+        var oNum = document.getElementById("num");
+
+        //声明变量来保存初始可以输入的字数
+        var allNum = 50;
+        oCon.oninput = function () {
+            
+            //获取已经输入的字数
+            var nowNum = this.value.length;
+
+            //计算还可以输入的字数
+            var Num = allNum - nowNum;
+
+            //将计算出来的值，重新给span元素
+            oNum.textContent = Num;
+            
+            //判断字数是否小于0
+            if (Num < 0) {
+                // 如果小于0，则将输入框的背景变为红色，
+                oCon.style.backgroundColor = "red";
+            } else {
+                // 如果不小于0，，则将输入框的背景变为透明
+                oCon.style.backgroundColor = "transparent";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

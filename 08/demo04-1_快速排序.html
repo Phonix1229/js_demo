@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var arr = [1, 5, 2, 5, 7, 3, 5, 7, 9, 6];
+
+        function findQuick(arr) {
+            if (arr.length <= 0) {
+                return arr;
+            }
+            var left = [];
+            var right = [];
+            var center = arr.pop();
+
+            arr.forEach(function (item, index) {
+                if (item >= center) {
+                    right.push(item);
+                } else {
+                    left.push(item);
+                }
+            });
+
+            var newArr = findQuick(left).concat(center, findQuick(right));
+            return newArr;
+        }
+
+        var re = findQuick(arr);
+        console.log(re);
+    </script>
+</body>
+
+</html>

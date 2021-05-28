@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            将其他类型转换成boolean类型则需要使用Boolean()
+                1，number转boolean
+                    非零为true
+                    零为false
+                2，string转boolean
+                    空字符串为false
+                    非空字符串为true
+                3，undefined和null转boolean
+                    都为false
+                4，object转boolean
+                    全都为true
+        
+        */
+        
+        //number转boolean，非零为true，零为false
+
+
+        console.log(Boolean(5));
+        console.log(Boolean(0))
+        console.log(Boolean(-2))
+
+
+        //string转boolean，空字符串为false，其他为true
+
+        console.log(Boolean("a"))
+        console.log(Boolean("sf"))
+        console.log(Boolean(""))
+
+        //null和undefined，都为false
+        console.log(Boolean(undefined))
+        console.log(Boolean(null))
+
+        //object转boolean，全都为true
+        console.log(Boolean([-1]))
+        console.log(Boolean([1,4,2]))
+        console.log(Boolean({}))
+        console.log(Boolean(function(){}))
+   
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">把点击过的元素变红</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oBox = document.getElementById("box");
+        var oLis = document.querySelectorAll("#box li");
+        oLis.forEach(function (item, index) {
+            item.onclick = function () {
+                //当点击某个li的时候，给li做一个标记，而自定义属性是做标记的首选
+                item.dataset.click = "true";
+            }
+
+        })
+
+        oBtn.onclick = function () {
+            oLis.forEach(function (item, index) {
+                //遍历所有li判断哪个li具有标记，有则变红
+                if (item.dataset.click) {
+                    item.style.backgroundColor = "red";
+
+                    //当颜色操作之后，清除自定义属性
+                    delete item.dataset.click;
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

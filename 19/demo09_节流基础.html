@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        var oBox = document.getElementById("box");
+
+        //初始化一个变量，代表上一次的时间
+        var lastTime = 0;
+        oBox.onmousemove = function () {
+
+            //每次移动都获取一次当前的事件
+            var nowTime = Date.now();
+
+            //如果时间小于200毫秒，那么不执行下面的代码
+            if (nowTime - lastTime < 200) {
+                return;
+            }
+
+            //在执行完代码后，讲现在的时间赋值给上一次的时间
+            lastTime = nowTime;
+
+            console.log(1);
+        }
+    </script>
+</body>
+
+</html>

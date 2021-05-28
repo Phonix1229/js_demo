@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            乘法：
+                将所有的类型都转换成number运算
+        */
+
+        console.log(2 * 2)//4
+        console.log(2 * -2.2)//-4.4
+        console.log("2" * 3)//6
+        console.log("2" * "2")//4
+        console.log("2" * "2a")//NaN
+        console.log("a2" * "2")//NaN
+        console.log(2 * null)//0
+        console.log(2 * undefined)//NaN
+        console.log(2 * [])//0
+        console.log(2 * function () { })//NaN
+
+        /* 
+            除法
+                所有的类型都转换成number运算
+        */
+
+        console.log(4 / 2)//2
+        console.log(4 / -3)//-1.3333333333333333···
+        console.log("2" / 2)//1
+        console.log(null / 2)//0
+        console.log(undefined / 2)//NaN
+        console.log([4] / 2)//2
+        console.log([4, 2] / 2)//NaN
+        console.log({} / 2)//NaN
+        console.log(function () { } / 2)//NaN
+
+        /*
+            取模（求余）
+                所有的类型都转换成nunber运算
+                求余的符号只看被除数，例如-9%2 得-1
+        */
+        console.log(8 % 5)//3
+        console.log(8 % -5)//3
+        console.log(5 % -8)//5
+        console.log(-8 % 5)//-3
+        console.log(-8 % -5)//-3
+    </script>
+</body>
+
+</html>

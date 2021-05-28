@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="outer">
+        outer
+        <div id="inner">
+            inner
+            <div id="con">con</div>
+        </div>
+    </div>
+    <script>
+
+        /* 
+            DOM0绑定事件
+                给元素的事件属性赋值一个事件函数即可
+
+                DOM0如果给同一个元素绑定多次，则会覆盖
+                DOM0只能支持冒泡
+        
+        */
+
+        var oOuter = document.getElementById("outer");
+        var oInner = document.getElementById("inner");
+        var oCon = document.getElementById("con");
+
+
+        //下面代码只打印了 con3  ，说明DOM0绑定事件会被覆盖
+        /* oCon.onclick = function () {
+            console.log("con1")
+        }
+        oCon.onclick = function () {
+            console.log("con2")
+        }
+        oCon.onclick = function () {
+            console.log("con3")
+        } */
+
+
+
+        //下面代码，只点击con，打印三个，con，inner，outer
+        //此打印顺序说明DOM0事件会冒泡
+        oCon.onclick=function (){
+            console.log("con")
+        }
+        oInner.onclick=function (){
+            console.log("inner")
+        }
+        oOuter.onclick=function (){
+            console.log("outer")
+        }
+    </script>
+</body>
+
+</html>

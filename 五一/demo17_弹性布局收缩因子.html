@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #f {
+            border: 2px solid green;
+
+            width: 750px;
+            height: 100px;
+            display: flex;
+
+
+        }
+
+        #f div {
+            width: 300px;
+            height: 100px;
+            /* 有点赖皮，欠150px，谁也不还，谁也不减少。 */
+            flex-shrink: 0;
+        }
+
+        #f div:first-of-type {
+            background-color: violet;
+        }
+
+        #f div:nth-of-type(2) {
+            background-color: palegoldenrod;
+            flex-shrink: 1;
+        }
+
+        #f div:nth-of-type(3) {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="f">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

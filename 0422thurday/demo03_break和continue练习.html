@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            需要注意：
+                while如果不注意容易进入死循环，在使用continue的时候，需要在continue前面改变循环值，不然会一直使用这个值进入了死循环
+                for语句在括号里面有i++；但是while没有更改循环值，所以需要改变循环值，
+        */
+
+
+        //求整数1～100的累加值，但要求碰到个位为3的数则停止累加
+        var sum = 0;
+
+        // for
+        /*  for (var i = 1; i <= 100; i++) {
+             if (i % 10 === 3) {
+                 break;
+             } else {
+                 sum += i;
+             }
+         }
+         console.log(sum);//3 */
+
+
+        // while
+        var i = 1;
+        while (i <= 100) {
+            if (i % 10 !== 3) {
+                sum += i;
+            } else {
+                break;
+            }
+            i++;
+        }
+        console.log(sum);//3
+
+
+
+        // 求整数1～100的累加值，但要求跳过所有个位为3的数
+        var sum = 0;
+
+        // for
+        /* for (var i = 1; i <= 100; i++) {
+            if (i % 10 === 3) {
+                continue;
+            } else {
+                sum += i;
+            }
+        }
+        console.log(sum);//4570 */
+
+
+        // while
+        var i = 1;
+        while (i <= 100) {
+            if (i % 10 !== 3) {
+                sum += i;
+                i++;
+            } else {
+                i++;
+                continue;
+            }
+        }
+        console.log(sum);//4570
+
+
+        // 求1-100之间不能被7整除的整数的和（用continue）
+        var sum = 0;
+
+        // for
+        /* for (var i = 1; i <= 100; i++) {
+            if (i % 7 === 0) {
+                continue;
+            } else {
+                sum += i;
+            }
+        }
+        console.log(sum); //4315 */
+
+
+        // while
+        var i = 1;
+        while (i <= 100) {
+            if (i % 7 !== 0) {
+                sum += i;
+                i++;
+            } else {
+                i++;
+                continue;
+            }
+        }
+        console.log(i, sum);//4315
+
+
+        // 求200-300之间所有的奇数的和（用continue）
+
+        var sum = 0;
+        // for
+        /* for (var i = 200; i <= 300; i++) {
+            if (i % 2 === 1) {
+                sum += i;
+
+            } else {
+                continue;
+            }
+        }
+        console.log(sum);//12500 */
+
+
+        //while
+        var i = 200;
+        while (i <= 300) {
+            if (i % 2 !== 0) {
+                sum += i;
+                i++;
+            } else {
+                i++;
+                continue;
+            }
+        }
+        console.log(sum);//12500
+
+
+
+
+        // 求200-300之间第一个能被7整数的数（break）
+        // for
+        /* for (var i = 200; i <= 300; i++) {
+            if (i % 7 === 0) {
+                break;
+            }
+        }
+        console.log(i);//203 */
+
+
+        //while
+        var i = 200;
+        while (i <= 300) {
+            if (i % 7 === 0) {
+                break;
+            } else {
+                i++;
+            }
+        }
+        console.log(i);//203
+
+
+
+
+    </script>
+</body>
+
+</html>

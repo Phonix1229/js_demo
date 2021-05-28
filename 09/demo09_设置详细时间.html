@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        var now = new Date();
+        console.log(now);
+
+        //设置年份(使用number类型)
+        console.log(now.setFullYear(2023));//1682777752227
+        console.log(now);//Sat Apr 29 2023 22:15:52 GMT+0800 (中国标准时间)
+
+        //设置月份，月份是从0开始的，设置11代表设置12月
+        console.log(now.setMonth(11))
+        console.log(now)
+        
+        //设置日期
+        console.log(now.setDate(20))
+        console.log(now)
+
+        //设置时
+        console.log(now.setHours(22))
+        console.log(now)
+
+        // 设置分
+        console.log(now.setMinutes(61))
+        console.log(now)
+
+        //设置秒
+        console.log(now.setSeconds(50))
+        console.log(now)
+
+        //设置毫秒
+        console.log(now.setMilliseconds(99))
+        console.log(now)
+
+
+        //设置时间戳，在计算机元年的基础上累加,毫秒
+        console.log(now.setTime(20000))
+        console.log(now)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var oHtml1 = document.querySelector("html");
+        console.log(oHtml1);
+
+        var oHead1 = document.querySelector("head");
+        console.log(oHead1);
+
+        var oBody1 = document.querySelector("body");
+        console.log(oBody1);
+
+        /* 
+            DOM提供有简便方法获取 html body head 元素
+        
+        
+        */
+
+        var oHtml2 = document.documentElement;
+        console.log(oHtml2);
+
+        var oHead2 = document.head;
+        console.log(oHead2);
+
+        var oBody2 = document.body;
+        console.log(oBody2);
+
+
+
+        //判断两种方法获取的结果是否一样
+        console.log(oHtml1 === oHtml2);//true
+        console.log(oHead1 === oHead2);//true
+        console.log(oBody1 === oBody2);//true
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        var oBox = document.getElementById("box");
+
+        //核心代码
+        function center(e) {
+            console.log(1)
+            console.log(this)
+            console.log(e)
+        }
+
+        oBox.onmousemove = throtle(center, 200);
+
+
+        function throtle(fn, time) {
+            //初始化一个上一次的时间
+            var lastTime = 0;
+            return function () {
+                //获取当前的时间
+                var nowTime = Date.now();
+                //如果时间间隔小于time，则不执行核心代码
+                if (nowTime - lastTime < time) {
+                    return;
+                }
+
+                //将当前时间赋值给上一次的时间
+                lastTime = nowTime;
+
+                //但是因为核心代码的this指向window，所以需要更改this指向事件元素
+                //
+                //调用核心代码
+                fn.call(this,arguments[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>

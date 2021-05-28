@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">销毁</button>
+    <div id="box">box</div>
+
+    <script>
+
+        /* 
+            销毁事件
+                DOM0销毁方式
+                    将事件属性赋值为null即可
+                
+                DOM2销毁方式
+                    使用removeEventListener()
+                    参数1：事件名
+                    参数2：哪个事件函数
+
+                IE销毁方式
+                    使用datachEvent()方法
+        
+        */
+
+        var oBox = document.getElementById("box");
+        var oBtn = document.getElementById("btn");
+
+        /* oBox.onclick = function () {
+            console.log("box")
+        }
+        oBtn.onclick = function () {
+            oBox.onclick = null;
+        } */
+
+
+
+        //如果没有设置函数，oBox和oBtn的函数是两个函数，而不是同一个函数
+        function fn() {
+            console.log("box")
+        }
+        oBox.addEventListener("click", fn, false)
+        oBtn.addEventListener("click", function () {
+            oBox.removeEventListener("click",fn)
+        })
+
+    </script>
+</body>
+
+</html>

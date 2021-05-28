@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 500px;
+            height: 500px;
+            background-color: gold;
+            border: 3px solid red;
+            margin: 30px;
+            padding: 20px;
+            border-top-width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+
+    <script>
+
+        /* 
+            clientLeft
+                获取元素左边框的宽度
+            clientTop
+                获取元素上边框的宽度
+
+        */
+        var oBox = document.getElementById("box");
+
+        console.log(oBox.clientLeft)//3
+        console.log(oBox.clientTop)//10
+    </script>
+</body>
+
+</html>

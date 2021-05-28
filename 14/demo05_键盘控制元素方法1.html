@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: fixed;
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+
+
+        /* 
+            这种方法，不完全正确，同时按住左右，它总会朝一个方向动，而应该是不动
+        
+        */
+
+
+        var oBox = document.getElementById("box");
+        var l = 50, t = 100;
+        //绑定键盘事件
+        document.onkeydown = function (e) {
+
+            if (e.keyCode === 37) {
+                //如果键码等于37，那么l累减
+                l -= 5;
+            } else if (e.keyCode === 38) {
+                //如果键码等于38，那么t累减
+                t -= 5;
+            } else if (e.keyCode === 39) {
+                //如果键码等于39，那么l累加
+                l += 5;
+            } else if (e.keyCode === 40) {
+                //如果键码等于40，那么l累加
+                t += 5;
+            }
+            oBox.style.left = l + "px";
+            oBox.style.top = t + "px";
+        }
+    </script>
+</body>
+
+</html>

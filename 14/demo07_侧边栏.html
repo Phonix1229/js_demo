@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid #000;
+        }
+
+        .list {
+            margin-top: 50px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .list h2 {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            background-color: blueviolet;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .list p {
+            /* display: none; */
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="list">
+            <h2>侧边栏1</h2>
+            <p class="move">1-1</p>
+        </div>
+        <div class="list">
+            <h2>侧边栏2</h2>
+            <p class="move">2-1</p>
+        </div>
+        <div class="list">
+            <h2>侧边栏3</h2>
+            <p class="move">3-1</p>
+        </div>
+    </div>
+
+    <script>
+
+
+        /* 
+            这种方法，会让 它们公用一个l
+            所以不好，想办法让他们不共用一个l
+        
+        */
+
+        var oLists = document.querySelectorAll(".list");
+        var oMoves = document.querySelectorAll(".list .move");
+        /* console.log(oLists,oMoves) */
+
+        var l = 0;
+        var timer = null;
+        oLists[0].onmouseenter = function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                l--;
+                if (l <= -100) {
+                    l = -100;
+                    console.log(l);
+                    clearInterval(timer)
+                }
+                oMoves[0].style.left = l + "px"
+            }, 10)
+        }
+
+        oLists[0].onmouseleave = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l++;
+                if (l >= 0) {
+                    l = 0;
+                    clearInterval(timer);
+                }
+                oMoves[0].style.left = l + "px";
+            }, 10)
+        }
+
+        oLists[1].onmouseenter = function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                l--;
+                if (l <= -100) {
+                    l = -100;
+                    console.log(l);
+                    clearInterval(timer)
+                }
+                oMoves[1].style.left = l + "px"
+            }, 10)
+        }
+
+        oLists[1].onmouseleave = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l++;
+                if (l >= 0) {
+                    l = 0;
+                    clearInterval(timer);
+                }
+                oMoves[1].style.left = l + "px";
+            }, 10)
+        }
+
+        oLists[2].onmouseenter = function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                l--;
+                if (l <= -100) {
+                    l = -100;
+                    console.log(l);
+                    clearInterval(timer)
+                }
+                oMoves[2].style.left = l + "px"
+            }, 10)
+        }
+
+        oLists[2].onmouseleave = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l++;
+                if (l >= 0) {
+                    l = 0;
+                    clearInterval(timer);
+                }
+                oMoves[2].style.left = l + "px";
+            }, 10)
+        }
+    </script>
+</body>
+
+</html>

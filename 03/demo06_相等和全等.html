@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            (==)相等，如果类型不一样会进行类型转换之后再比较是否相等，如果转换后相等则返回true
+            (!=)不等
+            (===)全等，不会进行类型转换，如果类型不相等，则直接返回false，如果类型相等，再比较值
+            (!==)不全等，如果类型不相等，则直接返回true
+        */
+        console.log(1 == "1");//true
+        console.log(1 == null);//false
+        console.log(null == 0);//false
+        console.log(undefined == 0);//false
+        console.log(undefined == null);//false
+        console.log([] == 0);//true
+        console.log({} == 0);//false
+        console.log(function(){} == 0);//false
+
+
+        console.log(1==="1");//false
+        console.log("1"==="1");//true
+        console.log(null===0);//false
+        console.log(null===undefined);//false
+        console.log([]===[]);//false
+        console.log([1]===[1]);//false
+        console.log({}==={});//false
+        console.log(function(){}===function(){});//false
+
+
+        
+        
+    </script>
+</body>
+
+</html>

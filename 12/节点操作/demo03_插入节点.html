@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        /* 
+            插入节点：
+                A.appendChild(B)
+                    把B插入到A内部的末尾(A是父元素)
+                
+                A.insertBefore(new,old)
+                    A是父元素，把new插入到old元素上面的位置(new和old是兄弟)
+
+                插入的不仅仅可以是新节点，也可以是老节点
+        */
+
+        var oBtn = document.getElementById("btn");
+        var oBox = document.querySelector(".box");
+        var oLis = document.querySelectorAll(".box li");
+
+        oBtn.onclick = function () {
+            var newLi = document.createElement("li");
+
+            newLi.textContent = "哈哈";
+            console.log(newLi);
+
+            //在oBox内部的末尾插入li
+            // oBox.appendChild(newLi)
+
+            //在oBox内部，将newLi插入到下标为1的li上面
+            // oBox.insertBefore(newLi, oLis[1]);
+
+            //在oBox内部，将下标为3的li，放到下标为1的li上面
+            // oBox.insertBefore(oLis[3], oLis[1])
+
+
+            //将下标为3的li，放到oBox内部的末尾
+            oBox.appendChild(oLis[3]);
+
+        }
+    </script>
+</body>
+
+</html>

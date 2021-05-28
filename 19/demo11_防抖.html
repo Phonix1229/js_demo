@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+
+    <script>
+        var oIpt = document.getElementById("ipt");
+
+        //核心代码
+        function center(e) {
+            console.log(1);
+            console.log(this)
+            console.log(e)
+        }
+
+        oIpt.onkeydown = fangdou(center, 500);
+        var timer = null;
+
+        function fangdou(fn, time) {
+            //初始化一个时间，代表上一次的时间
+            var lastTime = 0;
+
+            return function () {
+                //每次触发事件，就把上一次的定时器清除
+                clearTimeout(timer)
+
+                //获取当前的事件
+                var nowTime = Date.now();
+                //声明一个变量，用来保存this指向，因为事件函数中的this应当指向触发事件的元素
+                var _this = this;
+                //声明一个变量用来保存event对象，因为如果在定时器中直接使用arguments[0]，则找的定时器函数中的event
+                var e = arguments[0]
+
+                timer = setTimeout(function () {
+                    //判断时间间隔如果小于time，则不执行核心代码
+                    if (nowTime - lastTime < time) {
+                        return;
+                    }
+                    //将当前时间赋值给上一次的时间
+                    lastTime = nowTime;
+                    //调用核心函数
+                    fn.call(_this,e);
+                }, time)
+
+
+            };
+        }
+    </script>
+</body>
+
+</html>

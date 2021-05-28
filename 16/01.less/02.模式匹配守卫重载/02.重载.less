@@ -1,0 +1,19 @@
+.mixin(@a,@b){
+    background-color:@a;
+    width:1000px;
+}
+
+.mixin(@a){
+    background-color: @a;
+    width:100px;
+}
+
+.box{
+    height:100px;
+    .mixin(blue)
+}
+
+.box1{
+    height:200px;
+    .mixin(green,red)
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 用户输入一个年利率，(去年的利息和本钱 是下一年的本金) 翻倍需要几年
+        // 本金
+        var money = 10000;
+        // 利率
+        var rate = prompt("请输入一个年利率");
+        // 翻倍目标
+        var goal = 2 * money;
+        // 年数
+        var year = 0;
+
+        // 当今年的本金小于目标的时候，继续计算
+        while (money < goal) {
+            money *= rate;
+            year++;
+        }
+        console.log(money, year);
+    </script>
+</body>
+
+</html>

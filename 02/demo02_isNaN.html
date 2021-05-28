@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">检测</button>
+    <script>
+        /* 
+            isNaN是用来判断是否是NaN（转换成数字后的值），如果是返回true,否则返回false
+                isNaN有隐性转换，把内容转换成数字
+
+
+             需求，判断输入的内容是否是纯数字
+                 1，获取元素
+                 2，绑定btn按钮点击事件
+                 3，获取input的内容
+                 4，判断
+        */
+
+        //1，获取元素
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+
+        //查看获取元素是否成功
+        console.log(oIpt, oBtn)
+
+
+
+        //2，绑定btn按钮点击事件
+        oBtn.onclick = function () {
+
+            //3，获取input的内容
+            var num = oIpt.value;
+            console.log(num);
+
+            //4，判断获取的内容是否是NaN
+            if (isNaN(num)) {
+                //如果内容是NaN，则弹框提示输入错误
+                alert("输入错误")
+            } else {
+                //如果内容不是NaN，则弹框提示输入成功
+                alert("输入成功")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

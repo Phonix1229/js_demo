@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- js可以直接引入网上的js文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-codefund/index.js"></script>
+
+    <!-- 
+        js可以使用src属性引入外部js文件
+        使用src引入外部js文件后，此script标签内的js代码无效
+
+
+        alert是一种警告框，它阻止代码继续运行
+     -->
+    <script src="./index.js">
+        alert("我真帅")//无效
+    </script>
+
+    <script>
+        alert("好帅啊")//有效
+    </script>
+</body>
+
+</html>

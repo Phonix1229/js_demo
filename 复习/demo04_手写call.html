@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myCall = function (context) {
+            //null或undefined，则是window
+            if (context === null || context === undefined) {
+                context = window;
+            }
+            //基本类型，则是基本包装对象
+            if (typeof context !== "object" && typeof context !== "function") {
+                context = Object(context);
+            }
+
+            var arg = Array.from(arguments).slice(1)
+            var key = Date.now().toString(36);
+            context[key] = this;
+            eval("context[key](" + arg.toString() + ")")
+            delete context[key]
+
+        }
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+        fn.myCall(1, 2, 3)
+    </script>
+</body>
+
+</html>

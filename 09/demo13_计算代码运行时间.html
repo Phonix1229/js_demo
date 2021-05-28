@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            计算代码的运行时间
+        
+        */
+
+        //方法1，使用console对象中的time()方法和timeEnd()方法
+        /* console.time("for循环运行时间")
+        var sum = 0;
+        for (var i = 0; i < 100000000; i++) {
+            sum += i;
+        }
+
+        console.timeEnd("for循环运行时间") */
+
+
+        //方法2，时间相减
+
+        var lastTime = new Date();
+        var sum = 0;
+        for (var i = 0; i < 100000000; i++) {
+            sum += i;
+        }
+        var nowTime = new Date();
+        console.log(nowTime - lastTime);
+
+
+
+    </script>
+</body>
+
+</html>

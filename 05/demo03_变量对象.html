@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+           执行上下文的第一个准备工作就是将当前代码的所有变量整合起来，构成一个对象， 方便未来使用
+       */
+        fn1();
+
+        function fn1() {
+            // 因为进入函数的时候，变量对象已经将此函数中所有的变量都整合成一个对象，所以a的值是undefined，而不是没有找到a变量
+            //a的值undefined，已经声明了，但没赋值
+            console.log(a);
+
+            // 这里相当于是给a赋值而已
+            var a = 1;
+            console.log(a);
+        }
+
+        /* 
+            变量对象：
+                变量对象是在此段代码中，储存了在上下文中定义的变量和函数声明
+                变量对象分为 全局变量对象 和 局部变量对象
+                全局变量对象就是window对象，所有的全局变量和函数都是window对象的属性和方法
+                进入局部代码，创建局部变量对象，首先变量对象包含了所有的形参和实参
+                第二步：把所有声明的函数以键值对的形式放在变量对象中，如果和形参有重名的，则直接替换
+                第三步：把所有声明的变量放在变量对象中，值都是undefined
+        
+        
+        */
+
+        //案例
+        function fn2(a, b) {
+
+            /* 
+                var VO = {
+                    a:1,
+                    //形参b:2,
+                    arguments:[1,2,3,4],
+                    c:undefined,
+                    函数b:function () { }, //因为函数是一体的，所以全部提升。
+                    d:undefined,
+                    //变量b:undefined,  // 如果提升变量，和函数或形参同名的时候，则会被覆盖。函数>形参>变量
+                }
+            */
+
+
+            console.log(b);// f b(){} ，因为函数覆盖了形参
+
+            var c = 3;
+
+            function b() { }
+
+            var d = function () { }
+
+            // 此语句相当于给b赋值5
+            var b = 5;
+
+            console.log(b)
+
+        }
+        fn2(1, 2, 3, 4);
+
+
+    </script>
+</body>
+
+</html>

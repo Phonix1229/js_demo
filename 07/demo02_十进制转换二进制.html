@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            封装函数，传入十进制，返回二进制
+        
+        */
+
+        /* function fn1(num, p) {
+            //定义一个空数组，用来保存每次计算的余数
+            var arr = [];
+            //声明一个变量，用来保存单次计算的余数
+            var r = null;
+            //声明一个字符串，用来保存最后的值
+            var str = "";
+            while (num > 0) {
+                //将num对2求余
+                r = num % p;
+                //把r的值添加到arr数组
+                arr.push(r);
+                //因为num求余之后，值没变，所以需要除以2并取整
+                num = parseInt(num / p);
+            }
+            
+            while (arr.length > 0) {
+                //将arr中最后一个值加到str后面，进行倒序保存。
+                str += arr.pop();
+            }
+            return str;
+        }
+        var re = fn1(10, 2)
+        console.log(re);//1010 */
+
+
+        function fn1(num, p) {
+            //声明一个变量，用来保存单次计算的余数
+            var r = null;
+            //声明一个字符串，用来保存最后的值
+            var str = "";
+            while (num > 0) {
+                r = num % p;
+                str += r;
+                num = parseInt(num / p);
+            }
+            console.log(str);
+
+            var newStr = "";
+            for (var i = str.length - 1; i >= 0; i--) {
+                newStr += str[i];
+            }
+            console.log(newStr);
+        }
+        var re = fn1(10, 2);
+
+
+
+    </script>
+</body>
+
+</html>

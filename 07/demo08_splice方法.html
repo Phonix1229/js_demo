@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            splice方法：
+                删除、添加、替换
+                    参数1：开始删除的下标
+                    参数2：删除的长度
+                    后边所有的参数：在删除位置添加的元素
+        */
+
+        var arr = ["a", "b", "c", "d", "e", "f", "g"];
+
+        //从下标为2开始删除，删除长度为3，并在删除位置添加 2，3两个元素
+        var re = arr.splice(2, 3, 2, 3);
+        console.log(arr); // ["a", "b", 2, 3, "d", "e", "f", "g"]
+        console.log(re); // 返回的是删除的元素组成的数组
+
+
+
+        var arr2 = ["a", "b", "c", "d", "e", "f"];
+        //参数1是负数的时候，则倒着数，但是长度一定是向后数的
+        // var re2 = arr2.splice(-10, 100);
+        var re2 = arr2.splice(-4, 100);
+        console.log(arr2)
+        console.log(re2)
+
+
+
+
+        //替换数组倒数第三个的值为5
+        var arr3 = ["a", "b", "c", "d", "e", "f"];
+        var re3 = arr3.splice(-3, 1, "5");
+        console.log(arr3)
+        console.log(re3)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fn1(1, 2, 3);
+        function fn1(a, b, c) {
+            if (a < b) {
+                a = b + c;
+            } else {
+                a = 0;
+            }
+            console.log(a, b, c);
+        }
+
+
+
+        /* var a=1;
+        if(a>0){
+            function fn2(){
+                alert("fn2");
+            }
+        }
+        fn2(); */
+
+            //不写函数名的函数称为匿名函数
+            //匿名函数，调用方法1：自调用分为两种
+            //1，使用小括号括住，
+            //2，或者在function前面添加! ~ + - 一元运算符，在用括号
+            (function () {
+                alert("哼()")
+            })();
+
+        ~function () {
+            alert("哼~")
+        }();
+
+
+        // 匿名函数
+
+        var fn3 = function () {
+            alert("哼3")
+        }
+        fn3()
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById("box");
+
+        //因为事件对象event没有传参进去，所以是undefined。
+        //this指向window是因为，这个函数是由window调用的，所以指向window
+        //我们就需要将 事件对象event传进去，和 更改this指向触发事件的元素
+        //节流
+        function center(e) {
+            console.log(111)
+            console.log(e)
+            console.log(this)
+        }
+        oBox.onmousemove = throttle(center, 200);
+        function throttle(fn, time) {
+            //初始化一个上一次的时间
+            var lastTime = 0;
+
+            //返回事件函数
+            return function () {
+                //当触发事件的时候，获取当前的时间
+                var nowTime = Date.now();
+                //如果触发事件的时间间隔小于time，则不执行核心代码
+                if (nowTime - lastTime < time) {
+                    return;
+                }
+                //把当前时间赋值给上一次的时间
+                lastTime = nowTime;
+                //使用call方法调用fn函数，并且更改fn的this指向oBox
+                //这里的this指的就是oBox，这个是事件函数，所以它的this指向oBox
+                //arguments[0]，是当前事件函数的event对象
+                fn.call(this, arguments[0])
+            }
+        }
+    </script>
+</body>
+
+</html>

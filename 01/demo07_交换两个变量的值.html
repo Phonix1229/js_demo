@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //交换两个变量的值
+
+        //声明变量a，并赋值为1
+        var a = 1;
+        //声明变量b，并赋值为3
+        var b = 3;
+
+        //方法一
+        //声明一个临时变量temp,并赋值为a，此时temp的值为1
+        var temp = a;
+        //将b的值赋值给a，此时a的值为3
+        a = b;
+        //将temp的值赋值给b，此时b的值为1，这样就完成了两个交换两个变量的值
+        b = temp;
+
+
+        //方法二
+
+        //将a+b的值赋值给a，此时a的值为4
+        a = a + b;
+        //将a-b的值赋值给b，此时b的值为1
+        b = a - b;
+        //将a-b的值赋值给b，此时a的值为3
+        a = a - b;
+
+
+
+
+    </script>
+</body>
+
+</html>

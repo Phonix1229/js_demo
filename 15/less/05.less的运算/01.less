@@ -1,0 +1,15 @@
+#outer{
+    // 单位以第一个单位优先
+    width:50px + 100em; //150px
+
+    width: 50 + 100em; //150em
+
+    height: 200px - 50; //150px
+
+    height:30 * 15px; //450px
+
+    height:100 / 5px; //20px
+
+    //less因为编译css的时候，页面没有渲染，所以无法进行精确的百分比计算
+    height: 100% - 30px; //70%
+}

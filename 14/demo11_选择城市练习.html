@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #outer {
+            width: 500px;
+        }
+
+        #choose {
+            background-color: brown;
+        }
+
+        #box {
+            display: none;
+            flex-wrap: wrap
+        }
+
+        #box li {
+            width: 100px;
+            background-color: burlywood;
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <h1 id="address">北京</h1>
+        <div id="city">
+            <h2 id="choose">请选择城市</h2>
+            <ul id="box">
+                <li>北京</li>
+                <li>上海</li>
+                <li>深圳</li>
+                <li>广西</li>
+                <li>北流</li>
+                <li>玉林</li>
+                <li>南宁</li>
+                <li>广州</li>
+                <li>青岛</li>
+                <li>广饶</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        
+        var oBox = document.querySelector("#box");
+        var oAddress = document.querySelector("#address");
+
+        //
+        document.onclick = function (e) {
+            /* 
+                下面的代码相当于 
+                if(){}
+                else if(){}
+                else{}
+
+             */
+            //判断点击的是否是choose
+            if (e.target.id === "choose") {
+                //如果是，将oBox显示出来
+                oBox.style.display = "flex";
+                return;
+            }
+
+            //判断点击的是不是li，并且父级元素的id是不是box
+            if (e.target.nodeName === "LI" && e.target.parentNode.id === "box") {
+                //如果是则将该li中的内容给address
+                oAddress.textContent = e.target.textContent;
+
+                oBox.style.display = "none";
+                return;
+            }
+
+            oBox.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>

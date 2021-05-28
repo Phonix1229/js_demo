@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress {
+            width: 400px;
+            height: 40px;
+            border: 5px solid skyblue;
+        }
+
+        #con {
+            width: 0%;
+            height: 40px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+        进度条
+     -->
+    <div id="progress">
+        <div id="con"></div>
+    </div>
+
+    <p>已经加载了<span id="scale">0</span>%</p>
+
+    <script>
+        var oCon = document.querySelector("#con");
+        var oScale = document.getElementById("scale");
+
+        //预加载30张图片，首先创建30个img标签
+        var count = 0; // 初始化一个计数器
+        for (var i = 1; i < 31; i++) {
+            //js创建一个img标签
+            var oImg = new Image();
+
+            //设置img标签的src属性，只要img标签拥有src属性，则立马开始加载图片
+            oImg.src = "./images/" + (i < 10 ? "0" + i : i) + ".jpg";
+
+
+
+            //只要img加载完成，就会触发img的onload事件，所以给每个img绑定一个onload事件
+            oImg.onload = function () {
+                //让计数器累加
+                count++;
+
+                //每次累加完成计算比例
+                var scale = count / 30;
+
+                //因为计算出来的比例是小数，所以需要乘以100并取整
+                scale = parseInt(scale * 100);
+
+                //将百分比比例设置给内部元素的宽度
+                oCon.style.width = scale + "%";
+
+                oScale.textContent = scale;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

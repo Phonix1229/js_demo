@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+        /* 
+            chrome/IE
+                onmousewheel()事件
+                    上滚：e.wheelDelta:150
+                    下滚：e.wheelDelta:-150
+            
+            firefox
+                DOMMouseScroll()事件
+                    上滚：e.detail:-3
+                    下滚：e.detail:3
+
+        */
+
+        /* document.onmousewheel = function (e) {
+            console.log(e)
+            console.log(e.wheelDelta)
+        }
+
+        document.addEventListener("DOMMouseScroll",function (e){
+            console.log(e)
+            console.log(e.detail)
+        },false) */
+
+
+
+
+        /* var oBox = document.getElementById("box");
+        var w = 300;
+        //chrome
+        oBox.onmousewheel = function (e) {
+            if (e.wheelDelta > 0) {
+                w += 5;
+            } else {
+                w -= 5;
+            }
+
+            oBox.style.width = w + "px";
+        }
+
+        //firefox
+        var w = 300;
+        oBox.addEventListener("DOMMouseScroll", function (e) {
+            if (e.detail < 0) {
+                w += 5;
+            } else {
+                w -= 5;
+            }
+            oBox.style.width = w + "px";
+        }, false) */
+
+
+        //兼容优化
+        var oBox = document.getElementById("box");
+        var w = 300;
+        function scroll(e) {
+            //先判断是不是谷歌浏览器，用有没有e.wheelDelta来判断
+            if (e.wheelDelta) {
+                //判断上滚还是下滚
+                if (e.wheelDelta > 0) {
+                    w += 5;
+                } else {
+                    w -= 5;
+                }
+            } else {
+                //判断上滚还是下滚
+                if (e.detail < 0) {
+                    w += 5;
+                } else {
+                    w -= 5;
+                }
+            }
+            oBox.style.width = w + "px";
+        }
+        oBox.onmousewheel = scroll;
+        oBox.addEventListener("DOMMouseScroll", scroll, false);
+
+
+    </script>
+</body>
+
+</html>

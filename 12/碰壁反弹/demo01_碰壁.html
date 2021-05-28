@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 500px;
+            border: 1px solid #000;
+
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #con {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000;
+            background-color: skyblue;
+            border-radius: 50%;
+            position: absolute;
+            left: 40px;
+            top: 60px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+
+    <script>
+        var oBox = document.getElementById("box");
+        var oCon = document.getElementById("con");
+
+
+        //初始化两个值
+        var l = 40;
+        var t = 80;
+        //初始化开关
+        var flagX = true;
+        var flagY = true;
+
+        //定时器
+        setInterval(function () {
+            //如果横向开关为true，则left累加4
+            if (flagX) {
+                l += 4;
+                //判断最大临界值是否大于等oCon能移动的最大宽度
+                if (l >= oBox.clientWidth - oCon.offsetWidth) {
+                    //如果l大于等于最大临界值，那么就把最大临界值赋值给l
+                    l = oBox.clientWidth - oCon.offsetWidth;
+                    // 到临界值时，则取相反开关
+                    flagX = !flagX;
+                }
+            } else {
+                l -= 4;
+                // 最小临界值为0，如果小于则把0赋值给l
+                if (l <= 0) {
+                    l = 0;
+                    //到临界值，则取相反开关
+                    flagX = !flagX;
+                }
+            }
+
+
+            //top
+            //如果横向开关为true，则left累加4
+            if (flagY) {
+                t += 4;
+                //判断最大临界值是否大于等oCon能移动的最大宽度
+                if (t >= oBox.clientHeight - oCon.offsetHeight) {
+                    //如果l大于等于最大临界值，那么就把最大临界值赋值给l
+                    t = oBox.clientHeight - oCon.offsetHeight;
+                    // 到临界值时，则取相反开关
+                    flagY = !flagY;
+                }
+            } else {
+                t -= 4;
+                // 最小临界值为0，如果小于则把0赋值给l
+                if (t <= 0) {
+                    t = 0;
+                    //到临界值，则取相反开关
+                    flagY = !flagY;
+                }
+            }
+
+            oCon.style.left = l + "px";
+            oCon.style.top = t + "px";
+        }, 10)
+    </script>
+</body>
+
+</html>

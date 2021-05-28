@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            call
+                在Function的原型对象上有call、apply、bind 三个方法，可以供所有的函数使用
+                这三个方法必须是函数才能调用，存在意义是改变函数执行时的上下文，再具体一点就是改变函数运行时的this指向
+                call 的作用
+                    1，改变函数的this指向为自己的第一个参数
+                    2，调用函数
+                call的第一个参数有3种情况
+                    1，null 和 undefined：默认就会把this指向window
+                    2，基本包装类型：把this指向当前数据的包装对象
+                    3，对象类型：this直接指向该对象
+                call方法从第二个参数开始，依次都是给被调用函数传递的参数
+        
+        */
+
+
+        // console.dir(Function.prototype);
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        //call的使用
+        fn.call();//window NaN
+        fn.call(1, 2, 3);//Number {1} 5
+        fn.call(null, 2, 3);//window 5
+        fn.call(undefined, 2, 3);//window 5
+        fn.call(window, 2, 3);//window 5
+        fn.call("123", 2, 3);//String {"123"} 5
+        fn.call(true, 2, 3);//Boolean {true} 5
+        fn.call([1, 2, 3], 2, 3);//(3) [1, 2, 3] 5
+        fn.call(function () { }, 2, 3);//ƒ () { } 5
+        fn.call(new Date(), 2, 3);//Wed May 12 2021 22:01:29 GMT+0800 (中国标准时间) 5
+        fn.call({ name: "liangzai" }, 2, 3);//{name: "liangzai"} 5
+
+
+
+    </script>
+</body>
+
+</html>

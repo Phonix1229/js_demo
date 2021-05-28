@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Undefined类型只有一个值undefined
+            Undefined类型是指未定义的，一般不会设置一个值为undefined，它是一种错误的结果undefined
+
+            出现场景：
+                1.声明变量是没有赋值，那么它的值为undefined
+                2.调用函数没有传参的时候，它的值为undefined
+                3.如果获取对象中没有的属性，那么返回的时undefined
+                4.函数没有返回值时，那么它返回的是undefined
+        */
+
+
+        //场景一，声明函数没有赋值的时候，它的值为undefined
+        //声明一个变量
+        var a;
+        //将a的值打印出来
+        console.log(a);
+
+
+        //场景二，在调用函数时，没有传参的形参的值是undefined
+        //封装一个函数my()，当调用此函数时，将会把内容打印出来
+        function my(name,sex,age){
+            //将name打印出来
+            console.log("大帅逼"+name);
+            //将sex打印出来
+            console.log("性别"+sex);
+            //将age打印出来
+            console.log("年龄"+age);
+        }
+        //调用函数，并传参
+        my("许开镇","男",18);
+        my("许开镇","男");
+
+
+
+
+        //场景三，获取对象的属性值，找不到此属性时，就会返回undefined
+        //声明一个对象student
+        var student={
+            //对象name属性值为帅逼许开镇
+            name:"帅逼许开镇",
+            //对象sex属性值为男
+            sex:"男",
+            //age属性值为18
+            age:18
+        }
+        //获取对象student中所有属性值
+        console.log(student);
+        //获取对象中的name属性值
+        console.log(student.name);
+        //将对象中的height属性打印出来，但是找不到此属性就会打印undefined
+        console.log(student.height);
+
+
+        //场景四，如果函数没有设置返回值，那么，它的返回值为undefined
+        //封装一个函数sum，计算a+b的值
+        function sum(a,b){
+            //打印a+b的值
+            console.log(a+b);
+            //上面一行的代码只是打印出来，我们并不能获取到a+b的值，如果要获取的话，需要使用return返回结果
+            //return a+b; //返回值
+        }
+        //声明一个变量c，获取函数的结果
+        var c=sum(1,2);
+        //函数并没有设置返回值，获取不到函数的结果，所以c的值为undefined
+        console.log(c);
+
+    </script>
+</body>
+
+</html>

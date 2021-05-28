@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            text-align: center;
+            width: 600px;
+            border: 1px solid green;
+            margin: 50px auto;
+        }
+
+        #outer #title {
+            display: flex;
+        }
+
+        #outer #title h2 {
+            width: 198px;
+            border: 1px solid red;
+        }
+
+        #outer #title h2.active {
+            background-color: red;
+        }
+
+        #outer #box li {
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+            display: none;
+        }
+
+        #outer #box li.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题1</h2>
+            <h2>标题2</h2>
+            <h2>标题3</h2>
+        </div>
+        <ul id="box">
+            <li class="show">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        // 方法二
+        //获取元素
+        var oTitle = document.getElementById("title");
+        var oBox = document.getElementById("box");
+        var oH2s = oTitle.getElementsByTagName("h2");
+        var oLis = oBox.getElementsByTagName("li");
+
+        //外层for给所有h2扩展一个index属性，保存当前li所在父级中的下标
+        //外层for还给所有h2绑定了点击事件
+        for (var i = 0; i < oH2s.length; i++) {
+            oH2s[i].index = i;
+            oH2s[i].onclick = function () {
+                //在点击之后把所有样式都清空
+                for (var i = 0; i < oH2s.length; i++) {
+                    oH2s[i].classList.remove("active");
+                    oLis[i].classList.remove("show");
+                }
+                //给当前点击的元素和对应的内容添加样式
+                this.classList.add("active");
+                //获取this在所有标题中的下标是几，把得到的下标设置给olis即可
+                oLis[this.index].classList.add("show");
+            }
+        }
+    </script>
+</body>
+
+</html>

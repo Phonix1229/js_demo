@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="userName" autofocus>
+    <input type="password" id="passWd">
+    <button id="btn">提交</button>
+    <script>
+        /* 
+            需求，登陆判断用户名和密码，用户名为liangzai，密码为123456
+
+                1，获取元素
+                2，绑定btn点击事件
+                3，获取元素的内容
+                4，判断
+        */
+
+
+        //1，获取元素
+        var userN = document.getElementById("userName")
+        var passW = document.getElementById("passWd")
+        var oBtn = document.getElementById("btn")
+        console.log(userN, passW, oBtn)
+
+        //2，绑定btn点击事件
+        oBtn.onclick = function () {
+
+            //打印出来查看用户名和密码
+            console.log(userN.value,passW.value)
+
+            //判断用户名是否正确，若正确则进入验证密码，若错误，这弹窗提示用户名错误
+            if(userN.value==="liangzai"){
+                //判断密码是否正确，若正确则弹窗提示登录成功，若错误则弹窗提示密码错误
+                if(passW.value==="123456"){
+                    alert("登录成功")
+                }else{
+                    alert("密码错误")
+                }
+            }else{
+                alert("用户名错误")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

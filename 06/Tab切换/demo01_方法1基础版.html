@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            text-align: center;
+            width: 600px;
+            border: 1px solid green;
+            margin: 50px auto;
+        }
+
+        #outer #title {
+            display: flex;
+        }
+
+        #outer #title h2 {
+            width: 198px;
+            border: 1px solid red;
+        }
+
+        #outer #title h2.active {
+            background-color: red;
+        }
+
+        #outer #box li {
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+            display: none;
+        }
+
+        #outer #box li.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题1</h2>
+            <h2>标题2</h2>
+            <h2>标题3</h2>
+        </div>
+        <ul id="box">
+            <li class="show">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        //获取元素
+        var oTitle = document.getElementById("title");
+        var oBox = document.getElementById("box");
+        var oH2s = oTitle.getElementsByTagName("h2");
+        var oLis = oBox.getElementsByTagName("li");
+
+        //给第二个h2绑定点击事件
+        oH2s[1].onclick = function () {
+
+            //点击oH2s[1]的时候，去掉oH2s[0]和oH2s[2]的active，给oH2s[1]添加active
+            oH2s[0].classList.remove("active")
+            oH2s[1].classList.add("active");
+            oH2s[2].classList.remove("active");
+
+            //去掉oLis[0]和oLis[2]的show，给oLis[1]添加show
+            oLis[0].classList.remove("show");
+            oLis[1].classList.add("show");
+            oLis[2].classList.remove("show");
+        }
+        oH2s[0].onclick = function () {
+
+            //点击oH2s[0]的时候，去掉oH2s[1]和oH2s[2]的active，给oH2s[0]添加active
+            oH2s[0].classList.add("active")
+            oH2s[1].classList.remove("active");
+            oH2s[2].classList.remove("active");
+
+            //去掉oLis[1]和oLis[2]的show，给oLis[0]添加show
+            oLis[0].classList.add("show");
+            oLis[1].classList.remove("show");
+            oLis[2].classList.remove("show");
+        }
+        oH2s[2].onclick = function () {
+
+            //点击oH2s[2]的时候，去掉oH2s[0]和oH2s[1]的active，给oH2s[2]添加active
+            oH2s[0].classList.remove("active")
+            oH2s[1].classList.remove("active");
+            oH2s[2].classList.add("active");
+
+            //去掉oLis[0]和oLis[1]的show，给oLis[2]添加show
+            oLis[0].classList.remove("show");
+            oLis[1].classList.remove("show");
+            oLis[2].classList.add("show");
+        }
+
+
+    </script>
+</body>
+
+</html>

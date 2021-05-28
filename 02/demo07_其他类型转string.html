@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            其他类型转string有两种方法，全局String()，或者toString()
+            两个方法结果是一样的，但是String()是全局的方法，而toString()是每个类型都有的方法
+
+                1，number转string
+                    直接加上双引号，变成字符串
+
+                2，boolean转string
+                    直接加上双引号，变成字符串
+        */
+
+        //number类型打印出来是蓝色字体，字符串打印出来是黑色字体
+        console.log(111)
+        //number转string，直接加上双引号即可，变成字符串
+        console.log(String(111))
+        console.log(String(-1))
+        console.log(String(0))
+        console.log(String(0.222))
+        console.log(String(Infinity))
+
+        //boolean转string，直接加上双引号，变成字符串
+        console.log(String(true))
+        console.log(String(false))
+
+
+        //undefined和null转string，直接加上双引号，变成字符串
+        console.log(String(undefined))
+        console.log(String(null))
+
+        //object转string，数组去掉中括号，在加上双引号变成字符串；对象，
+        console.log(String([1]))
+        console.log(String([1,1]))
+        console.log(String({}))
+        console.log(String(function(){}))
+
+
+        //第二种方法，toString()
+        console.log((111).toString())
+    </script>
+</body>
+
+</html>

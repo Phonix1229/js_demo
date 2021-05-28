@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            测试题1
+        */
+        // 构造函数A
+        var A = function () { }
+        //给构造函数A的原型对象扩展一个属性n
+        A.prototype.n = 1
+        //实例化构造函数A，得到实例化对象b
+        var b = new A()
+        // 重写了A的原型对象，之前的原型对象已经被替换了
+        //重写原型对象并不能影响已经实例化号的实例化对象的原型链
+        A.prototype = {
+            n: 2,
+            m: 3
+        }
+        //实例化构造函数A，得到实例化对象c
+        var c = new A()
+        console.log(b.n, b.m, c.n, c.m);//1 undefined 2 3
+
+
+        /*
+            测试题2
+        */
+        
+        //构造函数F
+        var F = function () { };
+        //给Object的原型对象扩展一个a方法
+        Object.prototype.a = function () {
+            console.log('a()')
+        };
+        //给Function的原型对象扩展一个b方法
+        Function.prototype.b = function () {
+            console.log('b()')
+        };
+        // 实例化F
+        var f = new F();
+        f.a();//a()  ，f自身没有a方法，就沿着原型链找到了Object.prototype的a
+        // f.b();//f.b is not a function
+        F.a();// a() ，构造函数F自身没有，沿着原型链找到Function.prototype，再找到Object.prototype
+        F.b();// b() ，构造函数F自身没有，沿着原型链找到Function.prototype
+    </script>
+</body>
+
+</html>

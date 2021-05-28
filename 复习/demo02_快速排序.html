@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [2, 5, 2, 6, 8, 6, 4, 2, 7, 4, 2, 7];
+        console.log(arr.length)
+        function quickSort(a) {
+            if (a.length <= 1) {
+                return a;
+            }
+            var center = a.pop();
+
+            var left = [];
+            var right = [];
+            a.forEach(function (item, index) {
+                if (item < center) {
+                    left.push(item);
+                } else {
+                    right.push(item)
+                }
+            })
+
+            var newArr = quickSort(left).concat(center, quickSort(right));
+
+
+            return newArr;
+
+
+        }
+        var re = quickSort(arr);
+        console.log(re)
+        console.log(re.length)
+    </script>
+</body>
+
+</html>

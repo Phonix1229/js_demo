@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            unshift：
+                在数组头部插入一个或多个值
+                改变了原数组，并返回修改后数组的长度
+
+            shift：
+                删除数组头部的第一个值
+                改变了原数组，并返回删除的值
+        
+        */
+        var arr1 = ["a", "b", "c", "d", "e"];
+        var re1 = arr1.unshift(1, 1);
+        console.log(arr1)
+        console.log(re1)
+
+
+        var arr2 = ["a", "b", "c", "d", "e"];
+        var re2 = arr2.shift()
+        console.log(arr2)
+        console.log(re2)
+
+    </script>
+</body>
+
+</html>

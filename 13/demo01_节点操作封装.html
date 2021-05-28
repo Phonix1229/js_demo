@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById("btn");
+        var oBox = document.querySelector("#box");
+        var oLis = document.querySelectorAll("#box li");
+
+        //封装一个在元素内部的最上边插入beforeChild
+        function beforeChild(parent, child) {
+            //判断父元素里面有没有子元素
+            if (parent.firstChild) {
+                //将新元素插入到父元素的第一个子元素上面
+                parent.insertBefore(child, parent.firstChild)
+            }else{
+                //如果没有，则将新元素插入到父元素内部的后面
+                parent.appendChild(child)
+            }
+        }
+        var newLi = document.createElement("li")
+        newLi.textContent = "newLi"
+        console.log(newLi)
+        oBtn.onclick = function () {
+            beforeChild(oBox, newLi)
+        }
+
+        //封装一个在兄弟元素后边插入一个元素的方法 insertAfter
+        /* function insertAfter(newEle, oldEle) {
+            //判断老元素有没有下一个兄弟元素
+            if (oldEle.nextElementSibling) {
+                //获取老元素节点的下一个兄弟节点
+                var nextSibling = oldEle.nextElementSibling;
+                // console.log(nextSibling)
+                //将新元素插入到老元素的下一个兄弟元素的上面
+                oldEle.parentNode.insertBefore(newEle, nextSibling)
+            } else {
+                oldEle.parentNode.appendChild(newLi)
+            }
+
+        }
+        var newLi = document.createElement("li")
+        newLi.textContent = "newLi"
+        oBtn.onclick = function () {
+            insertAfter(newLi, oLis[1])
+        } */
+    </script>
+</body>
+
+</html>

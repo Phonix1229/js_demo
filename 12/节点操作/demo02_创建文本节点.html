@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+
+        /* 
+            创建一个文本节点
+                方法1：
+                    document.createTextNode("文本内容")
+                方法2：
+                    直接使用textContent插入
+        
+        */
+
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function () {
+
+            // 创建一个元素节点
+            var newLi = document.createElement("li")
+
+            // 方法1
+            var text = document.createTextNode("嘻嘻");
+            console.log(text)
+            //将文本节点插入到元素节点中
+            // newLi.appendChild(text);
+            // console.log(newLi);
+
+
+            // 方法2
+            newLi.textContent = "newLi";
+            console.log(newLi);
+
+        }
+    </script>
+</body>
+
+</html>

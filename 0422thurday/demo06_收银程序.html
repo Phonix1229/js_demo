@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            输入单价和数量，计算总价。如果总价大于500 则打八折。然后用户输入付钱，最终弹出找零。
+
+                prompt输入的是字符串,当要计算的时候，需要转换类型
+        */
+
+        var price = prompt("请输入单价");
+        var count = prompt("请输入数量");
+        // console.log(Number(price));
+        var total = Number(price) * Number(count);
+        // console.log(total);
+        if (total > 500) {
+            total = total * 0.8;
+        }
+        var pay = prompt("您本次消费" + total + "元，请付款（输入付钱的面额即可，稍后给您找零）")
+        while (pay > 0) {
+            if (pay >= total) {
+                var change = Number(pay) - total;
+                alert("找零" + change + "元，请收好")
+                alert("欢迎下次光临")
+                document.write("您一共消费" + total + "元，付款" + pay + "元，找您" + change + "元")
+                break;
+            } else {
+                alert("钱不够！！！");
+            }
+        }
+    </script>
+</body>
+
+</html>

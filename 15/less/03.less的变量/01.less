@@ -1,0 +1,30 @@
+// 1，作为普通变量
+@Color:#e5a1c3;
+
+//2，变量作为属性名使用，使用的时候把变量用{}包起来
+@w:width;
+
+//3，作为选择器的名字来使用
+@i:#inner;
+
+//3，保存url
+@url1:"http://docs.lipeihua.vip/_media/icon.svg";
+
+@url2: url("http://docs.lipeihua.vip/_media/icon.svg");
+
+@url3: url(@url1);
+
+#outer{
+    width: 200px;
+    height:200px;
+    // background-color: @Color;
+    background:@url3;
+    
+    @{i}{
+        @{w}: 50px;
+        height:50px;
+        background-color: @Color;
+        font-size: 30px;
+        
+    }
+}

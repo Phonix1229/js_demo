@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+
+            border-radius: 50%;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <button id="go">走</button>
+    <button id="stop">停</button>
+
+    <script>
+        var oBox = document.getElementById("box");
+        var oGo = document.getElementById("go");
+        var oStop = document.getElementById("stop");
+
+        var l = 0;
+
+        var timer = null;
+        oGo.onclick = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l += 5;
+                oBox.style.left = l + "px";
+            }, 1000/60);
+        }
+
+        oStop.onclick = function () {
+            clearInterval(timer);
+        }
+    </script>
+</body>
+
+</html>

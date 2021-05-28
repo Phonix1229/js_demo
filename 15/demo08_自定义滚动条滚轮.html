@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+
+            margin: 0;
+            /* 关闭系统滚动条 */
+            overflow: hidden;
+        }
+
+        #bar {
+            width: 40px;
+            height: 100%;
+            background-color: aqua;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+
+        #box {
+            width: 40px;
+            /* height: 100px; */
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div id="bar">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        var oCon = document.getElementById("con");
+        var oBar = document.getElementById("bar");
+        var oBox = document.getElementById("box");
+
+
+        // 向oCon中插入内容
+        for (var i = 0; i < 100; i++) {
+            //innerHTML可以解析标签
+            oCon.innerHTML += i + "<br>";
+        }
+
+        //计算滑条的自适应高度
+        // 获取窗口的高度
+        var winHeight = document.documentElement.clientHeight;
+        // 获取文档的高度
+        var oConHeight = oCon.offsetHeight;
+        // 获取oBar的高度
+        var oBarHeight = oBar.offsetHeight;
+        //计算比例
+        var scale = oBarHeight / oConHeight
+        // 计算oBox的高度，oBar的高度 / 文档的高度 * 窗口的高度
+        var oBoxHeight = winHeight * scale;
+
+        oBox.style.height = oBoxHeight + "px";
+
+
+
+        oBox.onmousedown = function (e) {
+            //拉动时会选中文档中的内容，所以在滚动时清除默认事件
+            e.preventDefault();
+            //获取鼠标到oBox顶部的距离
+            var mouseToBox = e.offsetY;
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+
+                //滚动条移动
+                //计算滚动条走的距离
+                var oBoxLocation = e.clientY - mouseToBox;
+                //判断临界值
+                if (oBoxLocation <= 0) {
+                    oBoxLocation = 0;
+                } else if (oBoxLocation >= oBar.clientHeight - oBox.offsetHeight) {
+                    oBoxLocation = oBar.clientHeight - oBox.offsetHeight
+                }
+
+                //这里为什么用transform会不行呢
+                // oBox.style.transform = "translateY(" + oBoxLocation + "px)";
+                oBox.style.top = oBoxLocation + "px";
+
+                // 内容移动
+                // 因为滑块的高度之前已经计算出来了，所以可以直接使用比例scale
+                // 计算文档移动的高度，滑条移动的高度 乘 比例
+                var oConLocation = oBoxLocation / scale;
+
+                oCon.style.transform = "translateY(-" + oConLocation + "px)";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+        document.onmousewheel = scroll;
+        document.addEventListener("DOMMouseScroll", scroll, false);
+        //声明一个滚轮事件
+        function scroll(e) {
+            //获取当前滚轮的位置
+            var t = oBox.offsetTop;
+            if (e.wheelDelta) {
+                if (e.wheelDelta < 0) {
+                    t += 5;
+                } else {
+                    t -= 5;
+                }
+            } else {
+                if (e.detail > 0) {
+                    t += 5;
+                } else {
+                    t -= 5;
+                }
+            }
+
+            if (t <= 0) {
+                t = 0;
+            } else if (t >= oBar.clientHeight - oBox.offsetHeight) {
+                t = oBar.clientHeight - oBox.offsetHeight;
+            }
+
+            oBox.style.top = t + "px"
+            var oConLocation = t / scale;
+            console.log(oConLocation)
+            oCon.style.transform = "translateY(-" + oConLocation + "px)";
+        }
+
+
+    </script>
+</body>
+
+</html>

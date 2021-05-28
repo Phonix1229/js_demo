@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            apply
+                和call类似
+                区别：给函数传参的时候
+                    call是第二个参数开始一次传参
+                    apply是把所有的参数放入一个数组中，然后传入apply的第二个参数
+        
+        */
+
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        //apply的使用
+        fn.apply();//window
+        fn.apply(1, [2, 3]);//Number {1} 5
+        fn.apply(null, [2, 3]);//window 5
+        fn.apply(undefined, [2, 3]);//window 5
+        fn.apply(window, [2, 3]);//window 5
+        fn.apply("123", [2, 3]);//String {"123"} 5
+        fn.apply(true, [2, 3]);//Boolean {true} 5
+        fn.apply([1, 2, 3], [2, 3]);//(3) [1, 2, 3] 5
+        fn.apply(function () { }, [2, 3]);//ƒ () { } 5
+        fn.apply(new Date(), [2, 3]);//Wed May 12 2021 22:01:29 GMT+0800 (中国标准时间) 5
+        fn.apply({ name: "liangzai" }, [2, 3]);//{name: "liangzai"} 5
+
+
+    </script>
+</body>
+
+</html>

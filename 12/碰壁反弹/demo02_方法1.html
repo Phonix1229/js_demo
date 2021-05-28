@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 500px;
+            border: 1px solid red;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        #con {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            background-color: skyblue;
+            position: absolute;
+            left: 40px;
+            top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+
+    <script>
+        var oBox = document.getElementById("box")
+        var oCon = document.getElementById("con")
+
+        var l = 40, t = 30;
+        var flagX = true, flagY = true;
+        setInterval(function () {
+            if (flagX) {
+                l += 5;
+                if (l >= oBox.clientWidth - oCon.offsetWidth) {
+                    l = oBox.clientWidth - oCon.offsetWidth;
+                    flagX = !flagX;
+                }
+                oCon.style.left = l + "px";
+            } else {
+                l -= 5;
+                if (l <= 0) {
+                    l = 0;
+                    flagX = !flagX;
+                }
+                oCon.style.left = l + "px";
+            }
+        }, 20)
+
+
+        setInterval(function () {
+            if (flagY) {
+                t += 5;
+                if (t >= oBox.clientHeight - oCon.offsetHeight) {
+                    t = oBox.clientHeight - oCon.offsetHeight;
+                    flagY = !flagY;
+                }
+                oCon.style.top = t + "px";
+            } else {
+                t -= 5;
+                if (t <= 0) {
+                    t = 0;
+                    flagY = !flagY;
+                }
+                oCon.style.top = t + "px";
+            }
+        }, 20)
+    </script>
+</body>
+
+</html>

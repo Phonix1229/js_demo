@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Null只有一个值null
+            它代表空的意思
+
+            出现场景
+                1.声明一个变量，但是现在还不想赋值，这是可以给变量赋值为null
+                2.函数需要传递参数时，如果不想给函数传递参数，那么可以传递一个null
+                3.把一个对象变成垃圾对象，可以给变量赋值null
+                4.原型链终点是null
+
+        */
+
+
+        //场景一：现在需要声明一个变量，但是未来才赋值的，这时我们就可以赋值为null了
+        //声明一个变量，并赋值为null
+        var s = null;
+        //变量s赋值为1
+        s = 1;
+
+
+        //场景二：在调用函数时，如果不想传递参数，我们可以传递一个null
+        //封装一个函数my
+        function my(name , sex , age){
+            console.log("我是帅逼"+name);
+            console.log("性别"+sex);
+            console.log("年龄"+age);
+        }
+        //调用函数
+        my("许开镇", "男" , null);
+
+
+
+        //场景三：垃圾对象
+        var a = {
+
+        }
+        //如果一个对象不被任何变量引用的时候，这个对象就不会再被使用了，这个对象就变成了垃圾对象
+        console.log(a);
+        a=null;
+    </script>
+</body>
+
+</html>

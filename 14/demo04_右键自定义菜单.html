@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 300px;
+            background-color: blueviolet;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p id="reload">刷新</p>
+    </div>
+
+
+    <script>
+
+        var oReLoad = document.getElementById("reload")
+        var oBox = document.getElementById("box");
+        var l = 0, t = 0;
+
+        document.oncontextmenu = function (e) {
+
+            //鼠标右键显示oBox
+            oBox.style.display = "block";
+            //点击右键时，将鼠标的位置，赋值给变量保存
+            l = e.clientX;
+            t = e.clientY;
+
+            //获取窗口的大小
+            var winWH = {
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight
+            }
+
+            //判断窗口的宽度减去鼠标的位置是否小于oBox的宽度
+            if (winWH.width - l < oBox.offsetWidth) {
+                //如果小于则将鼠标的位置减去oBox的宽度，再赋值给l保存
+                l -= oBox.offsetWidth
+            }
+
+
+            //判断窗口的高度减去鼠标的位置是否小于oBox的高度
+            if (winWH.height - t < oBox.offsetHeight) {
+                //如果小于则将鼠标的位置减去oBox的高度，再赋值给t保存
+                t -= oBox.offsetHeight;
+            }
+
+
+            //将l和t的值设置给oBox的宽和高
+            oBox.style.left = l + "px";
+            oBox.style.top = t + "px";
+
+
+            /* console.log(winWH)
+            console.log(mouseClient) */
+
+            //阻止默认菜单显示
+            return false;
+        }
+
+        oReLoad.onclick = function () {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

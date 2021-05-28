@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+
+            margin: 0;
+            /* 关闭系统滚动条 */
+            overflow: hidden;
+        }
+
+        #bar {
+            width: 40px;
+            height: 100%;
+            background-color: aqua;
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+
+        #box {
+            width: 40px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div id="bar">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        var oCon = document.getElementById("con");
+        var oBar = document.getElementById("bar");
+        var oBox = document.getElementById("box");
+
+
+        // 向oCon中插入内容
+        for (var i = 0; i < 300; i++) {
+            //innerHTML可以解析标签
+            oCon.innerHTML += i + "<br>";
+        }
+
+        oBox.onmousedown = function (e) {
+            //拉动时会选中文档中的内容，所以在滚动时清除默认事件
+            e.preventDefault();
+            //获取鼠标到oBox顶部的距离
+            var mouseToBox = e.offsetY;
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+                //获取鼠标到窗口的距离
+                var mouseLocation = e.clientY;
+
+                //计算滚动条走的距离
+                var oBoxLocation = mouseLocation - mouseToBox;
+
+                //判断临界值
+                if (oBoxLocation <= 0) {
+                    oBoxLocation = 0;
+                } else if (oBoxLocation >= oBar.clientHeight - oBox.offsetHeight) {
+                    oBoxLocation = oBar.clientHeight - oBox.offsetHeight
+                }
+
+                oBox.style.transform = "translateY(" + oBoxLocation + "px)";
+
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

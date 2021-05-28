@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //demo1
+        /* var v = "hello";
+
+        (function () {
+
+            //变量对象:var VO = { v:undefined }
+            alert(v);  //undefined
+
+            //相当于赋值
+            var v = "world";
+            alert(v); //world
+        })();
+
+        alert(v);  //hello */
+
+
+        //demo2
+        /* (function () {
+            //变量对象: var VO = { a:undefined, f:undefined, b:undefined, c:undefined}
+            alert(a + b + c); //NaN
+            var a = "1";
+            var f = function () {};
+            var b = "2";
+            var c = "3";
+        })(); */
+
+
+
+
+        //demo3
+        /* (function () {
+            // 变量对象: var VO = { function f2(){ } , f1:undefined}
+            f2(); 
+            //f1(); // 因为f1是变量，后面括号的是函数，所以会报错不是一个函数， TypeError: f1 is not a function
+            var f1 = function () {
+                alert(2)
+            };
+
+            function f2() {
+                alert(1); // 1
+            }
+        })(); */
+
+
+
+
+
+        //demo4
+        /* var a = 1;
+
+        function outer() {
+            var b = 2;
+
+            function inner() {
+                var c = 4;
+                alert(a); // 1
+            }
+            inner();
+        }
+        outer(); */
+
+
+
+        //demo5
+        /* var a = 1;
+
+        function check() {
+            //获取的全部变量的a 改的是全局变量
+            a = 100;
+            alert(a); //100
+        }
+        check();
+        alert(a); //100 */
+
+
+
+
+        //demo6
+        /* var v = "hello";
+        if (true) {
+            //因为if语句不是函数，所以获取的是全局变量
+            alert(v); //hello
+
+            //这个语句是重新声明了全局变量v，并赋值
+            var v = "world";
+        }
+        alert(v); //world */
+
+
+        //demo6.1
+        /* var v = "hello";
+        if (false) {
+            alert(v);
+            var v = "world";
+        }
+        alert(v); // hello */
+
+
+
+
+
+        //demo7
+        /*  function rain() {
+             //变量对象:var VO = { x:undefined }
+             var x = 1;
+ 
+             function man() {
+                 x = 100;
+             }
+             man();
+             alert(x); //100
+         }
+         rain(); */
+
+
+
+        //demo8
+        /* var x = 1;
+
+        function rain() {
+            //变量对象: var VO = { x:undefined }
+            alert(x); //undefined
+            var x = 'man';
+            alert(x); //man
+        }
+        rain() */
+
+
+        //demo9
+        /* function rain() {
+            //没有使用var声明，直接赋值，那么相当于在全局中声明了一个全局变量x，并赋值100
+            x = 100;
+        }
+        rain();
+        alert(x); //100 */
+
+
+
+        //demo10
+        /* var t = 'a';
+
+        function test2() {
+            // 变量对象: var VO = { t:undefined }
+            alert(t); //undefined
+            var t = 'b';
+            alert(t); //b
+        }
+        test2(); */
+
+        //demo11
+        /* var t = 'a';
+
+        function test2() {
+            alert(t); //a
+            t = 'b';
+            alert(t); //b
+        }
+        //这里因为还没有调用函数test2，所以t这时候的值还是"a"
+        alert(t); //a
+        test2();
+        alert(t); //b */
+
+
+        //demo12
+        /* var a = "Hello";
+
+        function test() {
+            alert(a); //Hello
+            a = "World";
+            alert(a); //World
+        }
+        test(); */
+
+        //demo13
+        /* var a = 1;
+
+        function test() {
+           //  变量对象:var VO = { a:undefined }
+            alert(a); //undefined
+            a = 4;
+            alert(a) // 4
+            var a = 2;
+            alert(a);  //2
+        }
+        test();
+        alert(a); //1 */
+
+
+
+        /* function fn1(a) {
+            // 变量对象: 
+            // var VO = {
+            //     形参a:1,
+            //     //变量a:undefined，会被形参覆盖
+            // }
+            console.log(a); //1
+            var a = 2;
+            console.log(a); //2
+        }
+        fn1(1); */
+
+        
+        /* function fn2() {
+
+            // 变量对象: 
+            // var VO = {
+            //     函数foo:function(){},
+            //     //变量foo:undefined，会被函数foo覆盖
+            // }
+            console.log(foo); //function
+
+            function foo() {}
+            var foo = 1;
+            //只是提升的时候会覆盖，但是值不会覆盖
+            console.log(foo) //1
+        }
+        fn2(); */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: chartreuse;
+            border-radius: 50%;
+            position: fixed;
+            top: 250px;
+            left: 0;
+            transition: all 10ms linear;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+        var oBox = document.getElementById("box");
+
+        var leftNum = 0;
+        var topNum = 250;
+
+        setInterval(function () {
+
+            leftNum++;
+            topNum = Math.sin(leftNum * 2 * Math.PI / 360);
+
+            oBox.style.left = leftNum + "px";
+            oBox.style.top = -100 * topNum + 250 + "px";
+
+
+            R = random(0, 255);
+            G = random(0, 255);
+            B = random(0, 255);
+            oBox.style.backgroundColor = "rgb(" + R + ", " + G + ", " + B + ")";
+
+        }, 10)
+
+
+
+
+        function random(a, b) {
+            return Math.floor(Math.random() * (b - a) + a);
+        }
+    </script>
+</body>
+
+</html>

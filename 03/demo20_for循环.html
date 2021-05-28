@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            for(表达式a;判断式b;表达式c){代码块}
+                for循环
+                先执行表达式a，
+                再执行判断b，如果判断式b的返回值为false，则跳出循环
+                如果判断式b的返回值为true，则执行代码块，然后执行表达式c，再执行判断式b...
+                
+
+
+        */
+
+
+
+
+        //打印出10句 hello world
+        for (var i = 0; i < 10; i++) {
+            console.log("hello world");
+        }
+
+        // 定义一个变量a = 5, 让a执行5次， 每次a加3。 然后弹出a最终的值
+        var a = 5;
+        for (var i = 0; i < 5; i++) {
+            console.log(a += 3);
+        }
+
+
+        // 求1到9的和
+        var sum = 0;
+        for (var i = 0; i < 10; i++) {
+            sum += i;
+        }
+        console.log(sum);
+
+
+
+        // 求1到100的和
+        var sum = 0;
+        for (var i = 0; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+
+
+        // 求1 - 99 中的单数的和
+        var sum = 0;
+        for (var i = 0; i < 100; i++) {
+            if (i % 2 === 1) {
+                sum += i;
+            }
+        }
+        console.log(sum)
+
+
+
+        // 求1 - 99 中是3的倍数的数字和
+        var sum = 0;
+        for (var i = 0; i < 100; i++) {
+            if (i % 3 === 0) {
+                sum += i;
+            }
+        }
+        console.log(sum);
+
+        // 定义一个v， 当v等于0时， v进行3次自加1。 否则v进行4次自加2
+        var v = 3;
+        if (v === 0) {
+            for (var i = 0; i < 3; i++) {
+                v++;
+            }
+        } else {
+            for (var i = 0; i < 4; i++) {
+                v += 2;
+            }
+        }
+        console.log(v);
+
+
+
+        // 定义v= 3; 对变量i由0到3进行遍历； 当i 等于2时， v自加2； 否则v自加3
+        var v = 3;
+        for (var i = 0; i <= 3; i++) {
+            if (v === 2) {
+                v += 2;
+            } else {
+                v += 3;
+            }
+        }
+        console.log(v);
+
+
+    </script>
+</body>
+
+</html>

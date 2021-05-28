@@ -1,0 +1,48 @@
+//无参数混合
+/* .center(){
+    //水平垂直居中
+    position:absolute;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    margin:auto;
+} */
+
+//有参数混合
+/* .center(@w,@h,@c){
+    width: @w;
+    height:@h;
+    background-color:@c;
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+} */
+
+//参数默认值
+.center(@w:100px,@h:100px,@c:skyblue){
+    width: @w;
+    height:@h;
+    background-color:@c;
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+
+#outer{
+    .center(500px,500px,blue);
+
+    #inner{
+        .center(300px,300px);
+        
+        #con{
+            .center(@h:100px,@c:green);
+        }
+    }
+}

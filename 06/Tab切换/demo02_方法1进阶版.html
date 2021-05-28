@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            text-align: center;
+            width: 600px;
+            border: 1px solid green;
+            margin: 50px auto;
+        }
+
+        #outer #title {
+            display: flex;
+        }
+
+        #outer #title h2 {
+            width: 198px;
+            border: 1px solid red;
+        }
+
+        #outer #title h2.active {
+            background-color: red;
+        }
+
+        #outer #box li {
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+            display: none;
+        }
+
+        #outer #box li.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题1</h2>
+            <h2>标题2</h2>
+            <h2>标题3</h2>
+        </div>
+        <ul id="box">
+            <li class="show">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        //获取元素
+
+        var oTitle = document.getElementById("title");
+        var oH2s = oTitle.getElementsByTagName("h2");
+        var oBox = document.getElementById("box");
+        var oLis = oBox.getElementsByTagName("li");
+        console.log(oTitle, oH2s, oBox, oLis)
+
+        oH2s[1].onclick = function () {
+            for (var i = 0; i < oH2s.length; i++) {
+
+                if (oH2s[i] === this) {
+                    oH2s[i].classList.add("active");
+                    oLis[i].classList.add("show");
+                } else {
+                    oH2s[i].classList.remove("active");
+                    oLis[i].classList.remove("show");
+                }
+            }
+        }
+        oH2s[0].onclick = function () {
+            for (var i = 0; i < oH2s.length; i++) {
+
+                if (oH2s[i] === this) {
+                    oH2s[i].classList.add("active");
+                    oLis[i].classList.add("show");
+                } else {
+                    oH2s[i].classList.remove("active");
+                    oLis[i].classList.remove("show");
+                }
+            }
+        }
+        oH2s[2].onclick = function () {
+            for (var i = 0; i < oH2s.length; i++) {
+
+                if (oH2s[i] === this) {
+                    oH2s[i].classList.add("active");
+                    oLis[i].classList.add("show");
+                } else {
+                    oH2s[i].classList.remove("active");
+                    oLis[i].classList.remove("show");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

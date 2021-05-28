@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">点我</button>
+    <script>
+        /* 
+            用户输入一个钱数 年利率为1.05(去年的利息和本钱 是下一年的本金) 翻倍需要几年
+        */
+
+        //获取元素
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+
+        oBtn.onclick = function () {
+            var money = Number(oIpt.value);
+            var year = 0;
+            while (true) {
+                if (parseInt(money / Number(oIpt.value)) == 2) {
+                    alert("翻倍需要" + year + "年");
+                    break;
+
+                } else {
+                    year++;
+                    money = money * 1.05;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

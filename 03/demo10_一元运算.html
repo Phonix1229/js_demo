@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            一元运算
+                +a,可以将a转换成number类型
+
+                其他类型转换number类型
+                    Number()
+                    parseInt()
+                    +a
+                    a-0
+                    a*1
+                    a/1
+        */
+
+        console.log(+1);//1
+        console.log(+"0.1");//0.1
+        console.log(+"a");//NaN
+        console.log(+null);//0
+        console.log(+undefined);//NaN
+        console.log(+[]);//0
+        console.log(+[5]);//5
+        console.log(+{});//NaN
+        console.log(+function () { });//NaN
+
+        // 
+        console.log(Number("5"));//5
+        console.log(parseInt("-2.5"));//-2.5
+        console.log("5" - 0);//5
+        console.log("5" * 1);//5
+        console.log("6" / 1);//6
+        console.log(+"5");//5
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">计算</button>
+
+    <script>
+
+        /* 
+            需求：如果有一个圆，输入半径r，计算面积和周长
+        */
+
+        //1，获取元素
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+
+        //2，绑定点击事件
+        oBtn.onclick = function () {
+
+            //3，获取input的内容
+            var r = oIpt.value;
+
+            //4，计算面积和周长
+            console.log(3.14 * r * r)
+            console.log(2 * 3.14 * r)
+        }
+
+    </script>
+</body>
+
+</html>

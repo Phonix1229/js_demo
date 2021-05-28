@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            减法运算符
+                所有类型都转换成number类型运算
+        */
+        console.log("5" - 3)//2
+        console.log("-5" - 3)//-8
+        console.log(true - 3)//-2
+        console.log(false - 3)//-3
+        console.log(null - 3)//-3
+        console.log(undefined - 3)//NaN
+        console.log([] - 3)//-3
+        console.log([5] - 3)//2
+        console.log([5, 4] - 3)//NaN
+        console.log({} - 3)//NaN
+
+
+        /* 
+            infinity运算
+                无穷运算，比原来大得Infinity，要比原来小得NaN
+        */
+        console.log(Infinity + Infinity)//Infinity
+        console.log(Infinity - Infinity)//NaN
+        console.log(Infinity * Infinity)//Infinity
+        console.log(Infinity / Infinity)//NaN
+        console.log(Infinity % Infinity)//NaN
+
+        console.log(Infinity + -Infinity)//NaN
+        console.log(Infinity - -Infinity)//Infinity
+        console.log(Infinity * -Infinity)//-Infinity
+        console.log(Infinity / -Infinity)//-NaN
+        console.log(Infinity % -Infinity)//-NaN
+    </script>
+</body>
+
+</html>

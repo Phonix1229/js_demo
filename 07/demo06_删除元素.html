@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            删除元素：
+                shift和pop：
+                    删除数组的第一个和最后一个的值
+
+                delete：
+                    只能删除对应的value值，但是下标依然存在，并且数组的长度不变
+
+                length：
+                    当设置length的值小于数组的长度的时候，会把后面的值全部删除
+                
+                splice：
+                    参数1：删除开始的下标的位置
+                    参数2：从删除位置开始数，删除元素的长度
+                    返回：删除的值组成的数组
+
+
+        
+        */
+
+
+        var arr1 = ["a", "b", "c", "d", "e", "f"];
+
+        //shift头部删除
+        /*  arr1.shift();
+         console.log(arr1); */
+
+
+        //pop尾部删除
+        /* arr1.pop();
+        console.log(arr1); */
+
+
+        //delete删除
+        /* var re = delete arr1[4];
+        console.log(arr1);
+        console.log(re); */
+
+
+        // length 删除
+        /* arr1.length = 3;
+        console.log(arr1); */
+
+        //splice删除
+        /* console.log(arr1);
+        var re = arr1.splice(1);
+
+        console.log(arr1);
+        console.log(re); */
+
+
+        //练习
+        var persons = [
+            { name: "lily1", sex: "女", age: 18 },
+            { name: "lily2", sex: "男", age: 19 },
+            { name: "lily3", sex: "女", age: 11 },
+            { name: "lily4", sex: "男", age: 28 },
+            { name: "lily5", sex: "女", age: 22 },
+        ];
+
+        //删除年龄不够18岁的
+        /* for (var i = 0; i < persons.length; i++) {
+            if (persons[i].age < 18) {
+                persons.splice(i, 1);
+                //删除元素之后，数组的下标向前提一位
+                //i=-1; //重置i，但是因为for执行i++，i的值就变成1了
+                i--;
+            }
+        }
+        console.log(persons); */
+
+
+
+        //删除性别为男的
+        /* for (var i = 0; i < persons.length; i++) {
+            if (persons[i].sex === "男") {
+                persons.splice(i, 1);
+                i--;
+            }
+        }
+        console.log(persons) */
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <div id="deng"></div>
+
+    <script>
+        /*  
+            需求，点击按钮，变化颜色，初始颜色为黄色
+
+            1，获取元素
+            2，绑定btn按钮点击事件
+            3，变换颜色
+        */
+
+        //1，获取元素
+        var oBtn = document.getElementById("btn");
+        var oDeng = document.getElementById("deng");
+        console.log(oBtn, oDeng);
+
+        //声明一个变量，来控制开关，true是初始状态黄色，false是绿色
+        var temp = false;
+
+        //2，绑定btn按钮点击事件
+        oBtn.onclick = function () {
+
+            //判断temp变量是true还是false
+            if(temp){
+                //如果是true，则改变div的背景颜色为黄色
+                oDeng.style.backgroundColor="yellow";
+                //将变量的值更改为false
+                temp=false;
+            }
+            else{
+                // 如果是false则改变div的背景颜色为绿色
+                oDeng.style.backgroundColor="green";
+                // 将变量temp的值更改为true
+                temp=true;
+            }
+        }
+    </script>
+</body>
+
+</html>

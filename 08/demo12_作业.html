@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            1.已知一个url地址字符串
+            http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+
+            //得到一个查询字符串的值，以对象表示
+            // {username:"xiaowang",password:12345,age:18,sex:"女",score:90}
+        */
+
+        /* var str = "http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90";
+
+        var arr1 = str.split("?");
+        console.log(arr1);
+        var arr2 = arr1[1].split("&")
+        console.log(arr2);
+        var newArr = []
+        for (var i = 0; i < arr2.length; i++) {
+            newArr[i] = arr2[i].split("=");
+        }
+        console.log(newArr);
+        var obj = {};
+        for (var i = 0; i < newArr.length; i++) {
+            obj[newArr[i][0]] = newArr[i][1];
+        }
+        console.log(obj); */
+
+
+        /* 
+            2.已知用户输入的内容组成的对象 {username:"xiaowang",password:12345,age:18,sex:"女",score:90}
+            已知一个url地址：http://www.baidu.com
+            请把对象以查询字符串的形式拼接在url地址上得到如下结果：
+            http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+        */
+
+        var obj = { username: "xiaowang", password: 12345, age: 18, sex: "女", score: 90 };
+
+        var nameArr = [];
+        var valueArr = [];
+
+        for (var key in obj) {
+            nameArr.push(key);
+            valueArr.push(obj[key]);
+        }
+        console.log(nameArr, valueArr)
+
+
+
+
+
+        /* 
+            3.给定一个字符串如：“abaasdffggghhjjkkgfddsssss3444343”问题如下：
+                - 字符串的长度
+                - 取出指定位置的字符，如：0,3,5,9等
+                - 查找指定字符是否在以上字符串中存在，如：i，c ，b等
+                - 替换指定的字符，如：g替换为22,ss替换为b等操作方法
+                - 截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+                - 找出以上字符串中出现次数最多的字符和出现的次数
+                - 在字符串的开头和末尾添加一个@符号
+        */
+        var str = "abaasdffggghhjjkkgfddsssss3444343";
+
+        //1.字符串的长度
+        /* var re = 0;
+        for (var i = 0; i < str.length; i++) {
+            re++;
+        }
+        console.log(re); */
+
+        //2.取出指定位置的字符，如：0,3,5,9等
+        /* console.log(str[0]);
+        console.log(str[3]);
+        console.log(str[5]);
+        console.log(str[9]); */
+
+        //3.查找指定字符是否在以上字符串中存在，如：i，c ，b等
+        /* for (var i = 0; i < str.length; i++) {
+            if (str[i] === "i") {
+                console.log("i存在");
+            } else if (str[i] === "c") {
+                console.log("c存在")
+            } else if (str[i] === "b") {
+                console.log("b存在")
+            }else{
+                console.log("不存在")
+            }
+        } */
+
+        /* var arr = str.split("")
+        console.log(arr);
+        arr.forEach(function (item, index) {
+            if(item==="i"||item==="c"||item==="b"){
+                console.log(item+"存在")
+            }
+        }) */
+
+
+        //4.替换指定的字符，如：g替换为22,ss替换为b等操作方法
+        /* var re = str.replace(/g/gi, "22").replace(/ss/gi, "b")
+        console.log(re); */
+
+        //5.截取指定开始位置到结束位置的字符串，如：取得1-5的字符串
+        /* var re = str.slice(1,6)
+        console.log(re); */
+
+
+        //6.找出以上字符串中出现次数最多的字符和出现的次数
+        /* var arr = str.split("");
+        console.log(arr)
+        var newArr = [];
+        //遍历arr数组，将arr数组中的重复的字符忽略，获取到第一次出现的字符，放在newArr数组中
+        arr.forEach(function (item, index) {
+            if (newArr.indexOf(item) === -1) {
+                newArr.push(item);
+            }
+        });
+        console.log(newArr);
+        var countArr = [];
+
+        //获取newArr数组中的每个值，在arr数组中出现多少次，将次数放在countArr数组中
+        for (var i = 0; i < newArr.length; i++) {
+            var count = 0;
+            for (var j = 0; j < arr.length; j++) {
+                if (newArr[i] === arr[j]) {
+                    count += 1;
+                }
+            }
+            countArr.push(count);
+        }
+        console.log(countArr);
+        console.log(newArr)
+
+        //为了获取到出现次数做多的是哪个下标，遍历countArr数组，找出最大值，获取最大值的下标
+        var max = countArr[0];
+        var maxindex
+        countArr.forEach(function (item, index) {
+            if (max < item) {
+                max = item;
+                maxindex = index;
+            }
+        })
+        console.log(newArr[maxindex],countArr[maxindex]); */
+
+
+
+        //7.在字符串的开头和末尾添加一个@符号
+        /* var re = "@" + str + "@";
+        console.log(re); */
+
+
+
+    </script>
+</body>
+
+</html>

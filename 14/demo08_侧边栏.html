@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 1px solid #000;
+        }
+
+        .list {
+            margin-top: 50px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .list h2 {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            background-color: blueviolet;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .list p {
+            /* display: none; */
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="list">
+            <h2>侧边栏1</h2>
+            <p class="move">1-1</p>
+        </div>
+        <div class="list">
+            <h2>侧边栏2</h2>
+            <p class="move">2-1</p>
+        </div>
+        <div class="list">
+            <h2>侧边栏3</h2>
+            <p class="move">3-1</p>
+        </div>
+    </div>
+
+    <script>
+
+
+        var oLists = document.querySelectorAll(".list");
+        var oMoves = document.querySelectorAll(".list .move");
+
+
+        for (var i = 0; i < oLists.length; i++) {
+
+            //获取下标，因为同步和异步的关系，所以在里面使用 i 进行绑定，可能获取到的是i的最大值，所以给每个oLists都添加一个属性index获取对应的下标
+            oLists[i].index = i;
+
+            move(i);
+        }
+
+        function move(i) {
+            //初始化一个变量
+            var l = 0;
+            var timer = null;
+            //给对应的list绑定鼠标移入事件
+            oLists[i].onmouseenter = function () {
+                //在每次触发事件时，先清除上一次的定时器
+                clearInterval(timer);
+                //这里的变量_this是为了获取当前事件的list
+                var _this = this;
+                timer = setInterval(function () {
+
+                    l--;
+                    // 判断临界值
+                    if (l <= -100) {
+                        l = -100;
+                        //当达到临界值时，清除定时器
+                        clearInterval(timer)
+                    }
+                    //这里的_this就是上面声明的变量，因为在这里使用this，指向的是window
+                    oMoves[_this.index].style.left = l + "px"
+                }, 10)
+            }
+
+            oLists[i].onmouseleave = function () {
+                clearInterval(timer);
+                //这里的变量_this是为了获取当前事件的list
+                var _this = this;
+                timer = setInterval(function () {
+                    l++;
+                    //判断临界值
+                    if (l >= 0) {
+                        l = 0;
+                        //当达到临界值时，清除定时器
+                        clearInterval(timer);
+                    }
+                    //这里的_this就是上面声明的变量，因为在这里使用this，指向的是window
+                    oMoves[_this.index].style.left = l + "px";
+                }, 10)
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

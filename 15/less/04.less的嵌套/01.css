@@ -1,0 +1,25 @@
+#outer {
+  width: 1000px;
+  height: 500px;
+  margin: 0 auto;
+}
+#outer .list {
+  width: 300px;
+  background-color: salmon;
+}
+#outer .list > li {
+  text-align: center;
+  line-height: 50px;
+}
+#outer .list > li:nth-child(2) {
+  color: #666;
+}
+#outer .list > li:nth-child(2):hover {
+  background-color: sandybrown;
+}
+#outer .list > li:hover {
+  color: red;
+}
+#outer .list > li span {
+  background-color: royalblue;
+}

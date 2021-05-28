@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            parseInt，将字符串转换成数字并取整
+                从第一位开始一直读取，直到碰到非数字为止
+
+            parseFloat，将字符串转换成数字，可以去浮点数
+                从第一位开始一直读取，直到碰到非数字为止（可以碰到一次小数点）
+            
+        */
+        //parseInt
+        console.log(parseInt("11a"))//11
+        console.log(parseInt("1a1"))//1
+        console.log(parseInt("1.1a"))//1
+        console.log(parseInt("a1.1a"))//NaN
+        console.log(parseInt("2.1"))//2
+
+
+        //parseFloat
+
+        console.log(parseFloat("2.1a"))//2.1
+        console.log(parseFloat("2.222.5"))//2.222
+        console.log(parseFloat("a2.222.5"))//NaN
+        console.log(parseFloat("2.2225a1"))//2.2225
+        
+    </script>
+</body>
+
+</html>

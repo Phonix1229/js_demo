@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #f {
+            border: 2px solid green;
+
+            display: flex;
+            width: 750px;
+            height: 100px;
+            align-items: flex-start;
+
+        }
+
+        #f div {
+            width: 100px;
+            height: 100px;
+
+        }
+
+        #f div:first-of-type {
+            background-color: violet;
+            order:1;
+        }
+
+        #f div:nth-of-type(2) {
+            background-color: palegoldenrod;
+            flex-grow:1;
+            order:3
+        }
+
+        #f div:nth-of-type(3) {
+            align-self: flex-end;
+            background-color: gold;
+            order:2;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="f">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,625 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clearborder-left {
+  border-left-style: none !important;
+}
+.clearMargin {
+  margin-left: 0!important;
+}
+a {
+  text-decoration: none;
+}
+html,
+body {
+  height: 100%;
+}
+#headerTopWidth {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #EAEAEA;
+}
+#headerTopWidth #headerTop {
+  width: 1200px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+#headerTopWidth #headerTop #headerTopLeft a:nth-child(3) {
+  padding: 0 5px;
+  border-left: 1px solid #000;
+}
+#headerTopWidth #headerTop #headerTopRight a {
+  padding: 0 5px;
+  border-left: 1px solid #000;
+}
+#headerTopWidth #headerTop a {
+  color: #666;
+}
+#headerTopWidth #headerTop a:hover {
+  text-decoration: underline;
+  color: #90EE90;
+}
+#headerBottom {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#headerBottom #headerBottomLeft {
+  text-align: center;
+  margin: 25px 45px;
+}
+#headerBottom #headerBottomLeft a {
+  display: flex;
+}
+#headerBottom #headerBottomRight {
+  height: 30px;
+  font-size: 0;
+}
+#headerBottom #headerBottomRight input {
+  width: 490px;
+  height: 32px;
+  border: 2px solid #EA4A36;
+  padding: 0 4px;
+  box-sizing: border-box;
+  outline: none;
+  border-right: none;
+  vertical-align: middle;
+}
+#headerBottom #headerBottomRight button {
+  width: 68px;
+  height: 32px;
+  border: none;
+  background-color: #EA4A36;
+  outline: none;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: middle;
+}
+#sidebar {
+  width: 300px;
+  height: 100%;
+  background-color: #7A6E6E;
+  position: fixed;
+  top: 0;
+  right: -294px;
+  transition: all 0.5s linear;
+}
+#sidebar .sidebarContent {
+  width: 294px;
+  height: 100%;
+  background-color: chartreuse;
+  position: relative;
+  right: -6px;
+  z-index: 3;
+}
+#sidebar .sidebarMenu {
+  width: 35px;
+  height: 35px;
+  background: #7A6E6E url("../images/list.png") center no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: -29px;
+}
+#sidebar .sidebarList {
+  width: 35px;
+  position: absolute;
+  left: -29px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#sidebar .sidebarList li {
+  width: 35px;
+  height: 35px;
+  background-color: #7A6E6E;
+  margin: 3px 0;
+  display: flex;
+  position: relative;
+}
+#sidebar .sidebarList li span {
+  width: 35px;
+  z-index: 1;
+}
+#sidebar .sidebarList li:nth-child(1) span {
+  background: #7A6E6E url("../images/toolbars.png") -87px -174px no-repeat;
+}
+#sidebar .sidebarList li:nth-child(2) span {
+  background: #7A6E6E url("../images/toolbars.png") -50px 0 no-repeat;
+}
+#sidebar .sidebarList li:nth-child(3) span {
+  background: #7A6E6E url("../images/toolbars.png") -50px -100px no-repeat;
+}
+#sidebar .sidebarList li:nth-child(4) span {
+  background: #7A6E6E url("../images/toolbars.png") -190px -150px no-repeat;
+}
+#sidebar .sidebarList li:nth-child(5) span {
+  background: #7A6E6E url("../images/toolbars.png") -50px -150px no-repeat;
+}
+#sidebar .sidebarList li:nth-child(6) span {
+  background: #7A6E6E url("../images/toolbars.png") -50px -50px no-repeat;
+}
+#sidebar .sidebarList li p {
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  transition: all 0.5s linear;
+}
+#sidebar .sidebarList li:hover p {
+  left: -100px;
+}
+#sidebar .backTop {
+  width: 35px;
+  height: 35px;
+  background: #7A6E6E url("../images/toolbars.png") -50px -250px no-repeat;
+  position: absolute;
+  left: -29px;
+  bottom: 0;
+}
+#nav {
+  min-width: 1200px;
+  border-bottom: 2px solid #E1251B;
+}
+#nav #navList {
+  width: 1200px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+}
+#nav #navList li {
+  margin: 0 22px;
+}
+#nav #navList li a {
+  color: #333;
+}
+#nav #navList li a:hover {
+  color: #90EE90;
+}
+#nav #navList li:first-child {
+  width: 210px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #E1251B;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+}
+#main {
+  width: 1200px;
+  margin: 15px auto;
+}
+#main #mainTop {
+  padding: 9px 0;
+  font-size: 12px;
+}
+#main #mainTop a {
+  color: #666;
+  margin: 0 10px;
+}
+#main #mainTop a:hover {
+  color: #90EE90;
+  text-decoration: underline;
+}
+#main #con {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+#main #con #conLeft {
+  width: 402px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+#main #con #conLeft .conPreview {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #333;
+  position: relative;
+}
+#main #con #conLeft .conPreview .conSmallPho {
+  width: 100%;
+  position: relative;
+}
+#main #con #conLeft .conPreview .conSmallPho .mask {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(208, 174, 255, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+#main #con #conLeft .conPreview .conBigPho {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: absolute;
+  left: 450px;
+  top: 0;
+  display: none;
+}
+#main #con #conLeft .conPreview .conBigPho img {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#main #con #conLeft .conPreviewScroll {
+  width: 400px;
+  display: flex;
+  margin-top: 5px;
+}
+#main #con #conLeft .conPreviewScroll p {
+  width: 10px;
+  height: 54px;
+  line-height: 54px;
+  font-size: 12px;
+  background-color: #EBEBEB;
+  border: 1px solid #ccc;
+}
+#main #con #conLeft .conPreviewScroll .preListOut {
+  width: 372px;
+  height: 56px;
+  overflow: hidden;
+  position: relative;
+}
+#main #con #conLeft .conPreviewScroll .preListOut .preList {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.5s linear;
+}
+#main #con #conLeft .conPreviewScroll .preListOut .preList li {
+  padding: 2px;
+}
+#main #con #conLeft .conPreviewScroll .preListOut .preList li img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ddd;
+  margin-right: 20px;
+}
+#main #con #conRight {
+  width: 700px;
+  font-size: 12px;
+}
+#main #con #conRight #priceArea h3 {
+  font-size: 14px;
+  margin-top: 15px;
+}
+#main #con #conRight #priceArea > p {
+  color: #e12228;
+  margin-top: 15px;
+}
+#main #con #conRight #priceArea #price {
+  width: 100%;
+  line-height: 28px;
+  margin-top: 10px;
+  padding: 7px;
+  box-sizing: border-box;
+  background-color: #FEE9EC;
+}
+#main #con #conRight #priceArea #price #priceDetail {
+  display: flex;
+}
+#main #con #conRight #priceArea #price #priceDetail p:first-child {
+  margin-right: 10px;
+}
+#main #con #conRight #priceArea #price #priceDetail p:last-child {
+  color: #cc1122;
+}
+#main #con #conRight #priceArea #price #priceDetail p:last-child span {
+  font-size: 24px;
+}
+#main #con #conRight #priceArea #price #promotion {
+  display: flex;
+  width: 520px;
+}
+#main #con #conRight #priceArea #price #promotion p:first-child {
+  margin-right: 10px;
+}
+#main #con #conRight #priceArea #price #promotion p:last-child span {
+  padding: 3px;
+  background-color: #C81623;
+  color: #fff;
+}
+#main #con #conRight #priceArea #support {
+  border-bottom: 1px solid #EDEDED;
+  padding-bottom: 5px;
+}
+#main #con #conRight #priceArea #support #supportDetail {
+  display: flex;
+  margin-top: 10px;
+}
+#main #con #conRight #priceArea #support #supportDetail p:first-child {
+  margin-right: 10px;
+}
+#main #con #conRight #priceArea #support #address {
+  display: flex;
+  margin-top: 10px;
+}
+#main #con #conRight #priceArea #support #address p:first-child {
+  margin-right: 10px;
+}
+#main #con #conRight #chooseInsert {
+  display: flex;
+}
+#main #con #conRight #chooseInsert mark {
+  height: 30px;
+  line-height: 30px;
+  margin: 5px;
+  padding: 0 5px;
+}
+#main #con #conRight #chooseInsert mark a {
+  margin-left: 5px;
+  font-weight: bold;
+  color: red;
+}
+#main #con #conRight #choose {
+  margin-top: 10px;
+}
+#main #con #conRight #choose dl {
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 13px;
+}
+#main #con #conRight #choose dl dt {
+  margin-right: 15px;
+}
+#main #con #conRight #choose dl dd {
+  border: 1px solid #eee;
+  padding: 2px 14px;
+  margin-right: 5px;
+  line-height: 24px;
+}
+#main #con #conRight #choose dl dd:nth-child(2) {
+  color: red;
+}
+#main #con #conRight #goodsCount {
+  display: flex;
+}
+#main #con #conRight #goodsCount #count {
+  width: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 15px;
+}
+#main #con #conRight #goodsCount #count input {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  outline: none;
+}
+#main #con #conRight #goodsCount #count #tally {
+  width: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+}
+#main #con #conRight #goodsCount #count #tally span {
+  width: 16px;
+  height: 16px;
+  background-color: #F1F1F1;
+  color: #666;
+  border: 1px solid #ddd;
+}
+#main #con #conRight #goodsCount #addCart {
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 25px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  background-color: #E1251B;
+}
+#main #productDetail {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-items: flex-start;
+}
+#main #productDetail #productDetailLeft {
+  width: 210px;
+  border: 1px solid #ccc;
+}
+#main #productDetail #productDetailLeft #tabDetailTitle {
+  display: flex;
+}
+#main #productDetail #productDetailLeft #tabDetailTitle h4 {
+  width: 50%;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 12px;
+  border-top: 4px solid transparent;
+  border-bottom: 1px solid #ccc;
+}
+#main #productDetail #productDetailLeft #tabDetailTitle h4.active {
+  border-top-color: #E1251B;
+  border-bottom-color: transparent;
+}
+#main #productDetail #productDetailLeft #tabDetailContent {
+  padding: 10px;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane {
+  display: none;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane.active {
+  display: block;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .partList {
+  display: flex;
+  flex-wrap: wrap;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .partList li {
+  width: 50%;
+  font-size: 12px;
+  height: 28px;
+  line-height: 28px;
+  border-bottom: 1px dotted #ccc;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .partList li a {
+  color: #666;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .partList li a:hover {
+  color: #90EE90;
+  text-decoration: underline;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .goodList li img {
+  display: block;
+  margin: 0 auto;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .goodList li h4 {
+  font-size: 12px;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .goodList li p {
+  font-size: 18px;
+  color: #EA4A36;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .goodList li a {
+  display: block;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+  border: 1px solid #ccc;
+}
+#main #productDetail #productDetailLeft #tabDetailContent .tab-pane .goodList li a:hover {
+  text-decoration: underline;
+}
+#main #productDetail #productDetailRight {
+  width: 980px;
+}
+#main #productDetail #productDetailRight #productFitting {
+  border: 1px solid #ddd;
+  padding-bottom: 3px;
+  margin-bottom: 15px;
+}
+#main #productDetail #productDetailRight #productFitting h4 {
+  font-size: 12px;
+  background-color: #F1F1F1;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0 5px 15px;
+  color: #333;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits {
+  display: flex;
+  text-align: center;
+  padding-top: 10px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .stapleProduct {
+  width: 127px;
+  color: #C81623;
+  font-weight: bold;
+  position: relative;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .stapleProduct span {
+  color: #333;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .parts {
+  display: flex;
+  font-size: 12px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .parts li {
+  width: 127px;
+  padding: 0 20px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .parts li img {
+  width: 120px;
+  height: 130px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .result {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 10px;
+  border-left: 1px solid #ddd;
+  padding-left: 10px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .result .partsCount {
+  margin: 10px 0;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .result .priceTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .result .totalPrice {
+  font-size: 16px;
+  color: #b1191a;
+  margin-bottom: 10px;
+}
+#main #productDetail #productDetailRight #productFitting .goodSuits .result .addToCart {
+  font-size: 16px;
+  padding: 10px 25px;
+  color: #fff;
+  background-color: #E1251B;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle {
+  display: flex;
+  background-color: #EDEDED;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle li {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0 11px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-right: none;
+  font-size: 12px;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle li a {
+  color: #333;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle li a:hover {
+  text-decoration: underline;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle li.active {
+  background-color: #EA4A36;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroTitle li.active a {
+  color: #fff;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroContent .introCon {
+  display: none;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroContent .introCon.active {
+  display: block;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroContent .introCon .goodsIntro {
+  padding-left: 10px;
+  font-size: 12px;
+  overflow: hidden;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroContent .introCon .goodsIntro li {
+  margin: 10px 0;
+}
+#main #productDetail #productDetailRight #productIntro #tabIntroContent .introCon .introPho {
+  width: 100%;
+  font-size: 0;
+}

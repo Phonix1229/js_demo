@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            声明函数:
+                1，函数声明
+                直接使用function来声明一个函数
+                function后面 + 函数名 + () + {函数体}
+                有函数名的函数叫做具名函数
+            
+                2，函数表达式
+                    把一个匿名函数赋值给一个变量，将来通过这个变量来调用函数
+
+                3，实例化Function声明函数
+                    直接new一个Function得到一个函数
+            
+        */
+
+        //1
+        function fn1() {
+
+        }
+        console.log(fn1);
+
+        //2
+        var fn2 = function () {
+
+        }
+        console.log(fn2);
+
+        //3
+        var fn3 = new Function();
+        console.log(fn3);
+    </script>
+</body>
+
+</html>

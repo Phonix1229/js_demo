@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #outer {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            display: flex;
+            text-align: center;
+
+        }
+
+        #outer div {
+            width: 200px;
+            background-color: skyblue;
+
+
+        }
+
+        #outer div p {
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+
+        #outer #center {
+            width: 200px;
+            height: 100%;
+            background-color: greenyellow;
+        }
+
+        #outer #center button {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="left">
+            <p> <input type="checkbox" id="leftCheck1"><label for="leftCheck1">left的p1</label></p>
+            <p> <input type="checkbox" id="leftCheck2"><label for="leftCheck2">left的p2</label></p>
+            <p> <input type="checkbox" id="leftCheck3"><label for="leftCheck3">left的p3</label></p>
+            <p> <input type="checkbox" id="leftCheck4"><label for="leftCheck4">left的p4</label></p>
+        </div>
+        <div id="center">
+            <button id="toRight">&gt;&gt;&gt;&gt;&gt;&gt;</button>
+            <button id="toLeft">&lt;&lt;&lt;&lt;&lt;&lt;</button>
+        </div>
+        <div id="right">
+            <p> <input type="checkbox" id="rightCheck1"> <label for="rightCheck1">right的p1</label></p>
+            <p> <input type="checkbox" id="rightCheck2"> <label for="rightCheck2">right的p2</label></p>
+            <p> <input type="checkbox" id="rightCheck3"> <label for="rightCheck3">right的p3</label></p>
+            <p> <input type="checkbox" id="rightCheck4"> <label for="rightCheck4">right的p4</label></p>
+        </div>
+    </div>
+
+    <script>
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        /* var leftIpts = oLeft.querySelectorAll("#left p input");
+        var rightIpts = oRight.querySelectorAll("#right p input"); */
+        var toRight = document.getElementById("toRight");
+        var toLeft = document.getElementById("toLeft");
+
+
+        toRight.onclick = function () {
+            //每次点击都重新获取一次
+            var leftIpts = oLeft.querySelectorAll("#left p input");
+            //遍历左边所有的input
+            leftIpts.forEach(function (item, index) {
+                //判断input是否被点击，如果input被点击，那么input的checked属性值是true
+                if (item.checked) {
+                    //将点击的input的父节点插入到右边
+                    oRight.appendChild(item.parentNode);
+                    //插入到右边后，清除样式
+                    item.checked = false;
+                }
+            })
+        }
+
+        toLeft.onclick = function () {
+            //每次点击都重新获取一次
+            var rightIpts = oRight.querySelectorAll("#right p input");
+            //遍历右边所有的input
+            rightIpts.forEach(function (item, index) {
+                //判断input是否被点击，如果input被点击，那么input的checked属性值是true
+                if (item.checked) {
+                    //将点击的input的父节点插入到右边
+                    oLeft.appendChild(item.parentNode);
+                    //插入到右边后，清除样式
+                    item.checked = false;
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>

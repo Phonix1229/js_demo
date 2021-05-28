@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            设置7天以后的现在时间
+        
+        */
+
+        // 方法一，让日期+7
+
+        /* var now = new Date();
+
+        //获取当前的日期
+        var day = now.getDate();
+
+        //让day+7
+        day = day + 7;
+
+        //设置日期
+        now.setDate(day);
+        console.log(now) */
+
+
+        /* var now = new Date();
+        //直接设置获取到的日期+7
+        now.setDate(now.getDate() + 7);
+        console.log(now) */
+
+
+        //方法2，直接获取当前时间加毫秒数
+
+        // var time = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7);
+        var time = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 7);
+        console.log(time)
+    </script>
+</body>
+
+</html>

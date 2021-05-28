@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            截取字符串：
+            substr()：
+                参数1：指定开始的下标
+                参数2：指定截取的长度
+        
+            substring()：
+                参数1：指定开始的下标（负数全部默认为0）
+                参数2：指定结束的下标（不包含参数2）（可以为负，但是一般不为负）
+                如果参数2小于参数1，则会自动互换位置截取
+
+            slice()：
+                参数1：指定开始的下标
+                参数2：指定结束的下标
+                如果参数为负，则都是倒着数，然后开始截取
+        */
+
+
+        var str = "helloyanfeng";
+        console.log(str);
+
+        console.log(str.substr(3)); //loyanfeng
+        console.log(str.substr(4, 3)); //oya
+
+        console.log(str.substring(2));//lloyanfeng
+        console.log(str.substring(2, 5)); //llo
+        console.log(str.substring(4, 1)); //ell
+        console.log(str.substring(4, -1)); //hell
+        console.log(str.substring(-3, 5)); //hello
+
+
+        console.log(str.slice(5)); // yanfeng
+        console.log(str.slice(3, 7)); // loya
+        console.log(str.slice(-3, -1)); // en
+        console.log(str.slice(2, -1)); // lloyanfen
+    </script>
+</body>
+
+</html>

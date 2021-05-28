@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            其他类型转number，需要使用Number()方法
+
+                1，string转number
+                    能转就转，不能转的都为NaN，空字符串和空白字符为0
+
+                2，boolean转number
+                    true为1，false为0
+                3，undefined和null转number
+                    null为0，undefined为NaN
+                4，object转number
+                    空数组为0，只有一个值的数组为该值
+                    其他都为NaN
+
+        */
+
+
+        //string转number
+        console.log(Number("111"))//111
+        console.log(Number("-1"))//-1
+        console.log(Number("0"))//0
+        console.log(Number(""))//0
+        console.log(Number(" "))//0
+        console.log(Number("a1"))//NaN
+        console.log(Number("1a"))//NaN
+
+        //boolean转number
+        console.log(Number(true))//1
+        console.log(Number(false))//0
+
+        //undefined和null转number
+        console.log(Number(undefined))//NaN
+        console.log(Number(null))//0
+
+        //object 转number，只有空数组为0和只有一个值的数组为该值，其他的都为NaN
+        console.log(Number([]))//0
+        console.log(Number([1]))//1
+        console.log(Number([1,1]))//NaN
+
+        console.log(Number({}))//NaN
+
+        console.log(Number(function(){}))//NaN
+    </script>
+</body>
+
+</html>

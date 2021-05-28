@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: fixed;
+            left: 50px;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+
+
+        /* 
+            这种方法，不完全正确，同时按住左右，它总会朝一个方向动，而应该是不动
+        
+        */
+
+
+        var oBox = document.getElementById("box");
+        var x = 50, y = 100;
+
+        var l = false, t = false, r = false, b = false;
+        document.onkeydown = function (e) {
+            switch (e.keyCode) {
+                case 37:
+                    l = true;
+                    break;
+                case 38:
+                    t = true;
+                    break;
+                case 39:
+                    r = true;
+                    break;
+                case 40:
+                    b = true;
+                    break;
+            }
+        }
+
+        document.onkeyup = function (e) {
+            switch (e.keyCode) {
+                case 37:
+                    l = false;
+                    break;
+                case 38:
+                    t = false;
+                    break;
+                case 39:
+                    r = false;
+                    break;
+                case 40:
+                    b = false;
+                    break;
+            }
+        }
+
+        setInterval(function () {
+
+            //这里如果使用else if ，那么按多个键也只会向一个方向移动
+            if (l) {
+                x--;
+            }
+            if (t) {
+                y--;
+
+            }
+            if (r) {
+                x++
+
+            }
+            if (b) {
+                y++
+            }
+
+            oBox.style.left = x + "px";
+            oBox.style.top = y + "px";
+        }, 10)
+
+
+    </script>
+</body>
+
+</html>

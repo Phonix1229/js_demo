@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            text-align: center;
+            width: 600px;
+            border: 1px solid green;
+            margin: 50px auto;
+        }
+
+        #outer #title {
+            display: flex;
+        }
+
+        #outer #title h2 {
+            width: 198px;
+            border: 1px solid red;
+        }
+
+        #outer #title h2.active {
+            background-color: red;
+        }
+
+        #outer #con {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #outer #con li {
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题1</h2>
+            <h2>标题2</h2>
+            <h2>标题3</h2>
+        </div>
+        <ul id="con">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        var oTitle = document.getElementById("title");
+        var oCon = document.getElementById("con");
+        var oH2s = oTitle.getElementsByTagName("h2");
+        var oLis = oCon.getElementsByTagName("li");
+
+        var timer = null;
+        for (var i = 0; i < oH2s.length; i++) {
+            //给每个h2绑定点击事件
+            oH2s[i].onclick = function () {
+                //在每次点击，都清除一次定时器，防止定时器叠加
+                clearInterval(timer)
+                for (var i = 0; i < oH2s.length; i++) {
+                    //判断哪个是点击的h2，如果是点击的h2
+                    if (this === oH2s[i]) {
+                        //给当前点击的h2添加className
+                        oH2s[i].classList.add("active");
+                        //书写点击以后，oCon的反应
+                        //获取起始位置(当前滚动条的位置)
+                        var startLoaction = oCon.scrollTop;
+                        //获取结束位置，根据当前点击的下标i来计算
+                        var endLocation = i * oLis[0].offsetHeight;
+                        //设置起始步数
+                        var startStep = 0;
+                        //设置结束步数
+                        var endStep = 30;
+
+                        //计算每一步走的距离
+                        var everyStep = (endLocation - startLoaction) / endStep;
+
+                        //设置定时器
+                        timer = setInterval(function () {
+                            //步数累加用来判断临界值
+                            startStep++;
+                            //判断临界值，当起始步数累加到大于等于结束步数的时候清除定时器
+                            if (startStep >= endStep) {
+                                clearInterval(timer);
+                            }
+                            //让起始位置累加每一次走的距离
+                            startLoaction += everyStep;
+                            //把最新的起始位置的值赋值给滚动条
+                            oCon.scrollTop = startLoaction;
+
+                        }, 10)
+                    } else {
+                        //如果当前h2不是点击的h2，则移除className
+                        oH2s[i].classList.remove("active");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

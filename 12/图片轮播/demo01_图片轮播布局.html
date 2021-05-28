@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: auto;
+        }
+
+        .con {
+            display: flex;
+        }
+
+        .con img {
+            width: 500px;
+        }
+
+        .outer p {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(112, 255, 255, 0.5);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size:20px;
+            position:absolute;
+            top: 50%;
+            transform:translateY(-50%)
+        }
+        .left{
+            left:10px;
+        }
+        .right{
+            right:10px;
+        }
+
+        .outer ul{
+            display:flex;
+
+            position:absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+        .outer ul li{
+            width:20px;
+            height:20px;
+            border-radius: 50%;
+            background-color: rgba(255, 82, 255, 0.5);
+            margin-left: 5px;
+        }
+        .outer ul li.active{
+            background-color: rgba(255, 82, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="./img/kof-01.jpg" alt="">
+                <img src="./img/kof-02.jpg" alt="">
+                <img src="./img/kof-03.jpg" alt="">
+                <img src="./img/kof-04.jpg" alt="">
+                <img src="./img/kof-05.jpg" alt="">
+            </div>
+        </div>
+        <p class="left">&lt;</p>
+        <p class="right">&gt;</p>
+        <ul class="list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>

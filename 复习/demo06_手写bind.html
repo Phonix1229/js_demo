@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myBind = function (context) {
+            var _this = this;
+            var arg  = Array.from(arguments).slice(1);
+            return function () {
+                _this.apply(context,arg)
+            }
+        }
+
+        function fn(a, b) {
+            console.log(this, a + b)
+
+        }
+        var re = fn.myBind(1, 2, 3)
+        re()
+    </script>
+</body>
+
+</html>

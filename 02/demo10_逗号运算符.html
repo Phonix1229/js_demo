@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            逗号运算符
+                1，一条语句可以执行多个操作
+                2，一条语句先执行逗号左侧，再执行逗号右侧，最后整条语句返回的是最右侧的值
+        
+        */
+
+        //声明变量时，用逗号隔开，可以声明多个变量
+        var a = 1, b = 2, c = 3;
+        //可以用逗号隔开，执行多个操作
+        console.log(a, b, c)
+
+
+        //先执行逗号左边，再执行逗号右边，最后返回的是逗号右侧的值
+        var d = (1, 2, 3, 4, 5)
+        console.log(d)//5
+
+
+        /* 
+            经典案例，逗号运算符是从左侧运算到右侧，返回的是右侧的值，所以这个案例是看j的值来进行循环的
+            当i=4,j=4的时候，循环条件此时是 false,true
+            所以返回的是true，循环继续
+        */
+        for (var i = 0, j = 0; i < 4, j < 10; i++, j++) {
+            console.log(i)
+        }
+    </script>
+</body>
+
+</html>

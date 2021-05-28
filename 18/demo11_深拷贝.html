@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "靓仔",
+            age: 18,
+            do: function () { },
+            arr: [1, 2, 3]
+        }
+        // console.log(Object.prototype.toString.call(obj).slice(8,-1).toLowerCase())
+
+        // 深拷贝
+        function checkType(o) {
+            //检测obj是什么类型
+            return Object.prototype.toString.call(o).slice(8, -1).toLowerCase();
+        }
+        function deepClone(o) {
+            //先判断o是什么类型
+            if (checkType(o) === "object") {
+                //如果是一个对象，则新建一个对象
+                var newObj = {};
+            } else if (checkType(o) === "array") {
+                // 如果是一个数组，则新建一个数组
+                var newObj = [];
+            } else {
+                //如果是其他类型，则直接赋值即可
+                return o;
+            }
+            //遍历o，将o的属性和属性值赋给newObj
+            for (var key in o) {
+                // 继续判断o的属性值是什么
+                newObj[key] = deepClone(o[key]);
+            }
+
+            return newObj;
+        }
+
+        var re = deepClone(obj);
+        console.log(re);
+        console.log(re===obj);//false
+        console.log(re.do === obj.do);//false
+    </script>
+</body>
+
+</html>

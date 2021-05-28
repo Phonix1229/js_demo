@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">+2</button>
+
+    <script>
+
+        /* 
+            需求，输入一个整数，点击按钮，框中的数加2
+        */
+        //获取元素
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+
+        //绑定btn点击事件
+        oBtn.onclick = function () {
+
+            //获取input的值，因为是字符串，所以需要Number方法转为数字
+            //如果使用parseInt转换类型的话，不输入点击按钮回显示NaN
+            //使用Number转换类型，不输入点击按钮是从0开始累加
+            var num = Number(oIpt.value);
+            //点击事件触发变量num加2
+            num = num + 2;
+            //将变量num的值赋给oIpt的值
+            oIpt.value = num;
+        }
+    </script>
+</body>
+
+</html>

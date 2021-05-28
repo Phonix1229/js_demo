@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            break，是用来退出循环（for，while），默认退出最近的循环，可以设置label来设置退出的是哪个for循环
+
+            continue，是用来跳过这次循环
+
+
+        */
+
+
+        /* outer:
+            for (var i = 0; i < 5; i++) {
+                inner: for (var j = 0; j < 5; j++) {
+                    if (i === j) {
+                        break;
+                    } else {
+                        console.log(i, j);
+                    }
+                }
+            } */
+
+
+        /* outer:
+        for (var i = 0; i < 5; i++) {
+            inner: for (var j = 0; j < 5; j++) {
+                if (i === j) {
+                    console.log(i, j);
+                } else {
+                    continue;
+                }
+            }
+        } */
+
+
+        //这样使用的话，会多打印一个i，所以需要注意
+        // 可以在if 和else里面添加i++，但是注意不要在continue下面加，因为continue跳过之后，i永远都是3，进入是死循环。
+        var i = 0;
+        while (i < 10) {
+            // i++;
+            if (i === 3) {
+                i++;
+                continue;
+            } else {
+                console.log(i);
+                i++;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

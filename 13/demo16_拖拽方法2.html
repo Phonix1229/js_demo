@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+
+        oBox.onmousedown = function (e) {
+            //获取鼠标到box的边框距离
+            var startLocation = {
+                x: e.offsetX,
+                y: e.offsetY
+            }
+            document.onmousemove = function (e) {
+                //实时获取鼠标到窗口边缘的距离
+                var endLocation = {
+                    x: e.clientX - startLocation.x,
+                    y: e.clientY - startLocation.y
+                }
+
+                // 临界值
+                if (endLocation.x <= 0) {
+                    endLocation.x = 0;
+                } else if (endLocation.x >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                    endLocation.x = document.documentElement.clientWidth - oBox.offsetWidth;
+                }
+                if (endLocation.y <= 0) {
+                    endLocation.y = 0;
+                } else if (endLocation.y >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                    endLocation.y = document.documentElement.clientHeight - oBox.offsetHeight;
+                }
+
+                oBox.style.left = endLocation.x + "px";
+                oBox.style.top = endLocation.y + "px";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+
+        // 需求：点击li 弹出该li的下标
+
+        var oBox = document.getElementById("box");
+        var oLis = oBox.getElementsByTagName("li");
+
+        //for遍历
+        /* for (var i = 0; i < oLis.length; i++) {
+            oLis[i].index=i;
+            oLis[i].onclick = function () {
+                console.log(this.index);
+            }
+        } */
+
+
+        //事件委托
+        /* oBox.onclick = function (e) {
+            if (e.target.nodeName === "LI") {
+                for (var i = 0; i < oLis.length; i++) {
+                    if (e.target === oLis[i]) {
+                        console.log(i)
+                    }
+                }
+            }
+        } */
+
+        //
+        /* for (var i = 0; i < oLis.length; i++) {
+            //每个函数自调用，保存 i ，形成独立的作用域
+            (function (i) {
+                oLis[i].onclick = function () {
+                    console.log(i);
+                }
+            })(i);
+        } */
+
+
+        //oLis是一个伪数组
+        console.log(oLis);
+        //将oLis转为一个数组之后，进行遍历
+        Array.from(oLis).forEach(function (item, index) {
+            item.onclick=function (){
+                console.log(index);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

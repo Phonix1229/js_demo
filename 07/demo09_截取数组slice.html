@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            splice
+                删除数组返回被删除的值，所以可以把被截取的元素删除，拿到返回值
+                参数2省略，默认删除到数组的末尾
+                可以从某个位置开始截取，规定截取的长度
+
+
+            slice
+                可以截取指定数组中的元素
+                参数1：开始截取的位置
+                参数2：结束的位置，不包含结束位置（如果省略，默认到末尾）
+                原数组不会发生变化，返回一个截取值组成的新数组
+
+        
+        */
+        //splice
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // var re = arr.splice(4);
+        var re = arr.splice(4, 2);
+        console.log(arr)
+        console.log(re)
+
+
+
+        //slice
+        //参数1为负，则倒着数
+        //参数2为负，则倒着数
+        //如果结束位置在开始位置的前边，则截取失败
+
+        var arr2 = ["a", "b", "c", "d", "e", "f"];
+        var re2 = arr2.slice(2, -1);
+        console.log(arr2)
+        console.log(re2)
+
+        var re3 = arr2.slice(-3, -1);
+        console.log(re3)
+
+
+
+
+    </script>
+</body>
+
+</html>

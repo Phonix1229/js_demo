@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+
+            push()
+                在数组末尾添加一个或多个元素
+                push改变了原数组，并返回修改后数组的长度
+
+            pop()
+                删除数组最末尾的一个值
+                返回的是被删除的值
+        
+        */
+        var arr1 = ["a", "b", "c", "d", "e", "f"];
+        var re = arr1.push(1, 2, 3);
+        console.log(arr1);
+        console.log(re);
+
+        var arr2 = ["a", "b", "c", "d", "e", "f"];
+        var re = arr2.pop();
+        console.log(arr2);
+        console.log(re);
+    </script>
+</body>
+
+</html>

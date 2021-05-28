@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            遍历对象：
+                for in 遍历
+        */
+        var obj = {
+            name: "fengfeng",
+            age: 18,
+            sex: "nan"
+        }
+
+        for (var a in obj) {
+            // console.log(a);
+            //打印每个key的值，key:[value]
+            console.log(a+":"+obj[a]);
+        }
+    </script>
+</body>
+
+</html>

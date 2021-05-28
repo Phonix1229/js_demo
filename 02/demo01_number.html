@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //number类型指的是数值，有整型，浮点型，布尔型，进制。。。
+        //整型
+        var num1 = 2;
+        console.log(num1, typeof (num1));//2
+        var num1 = 2.1;
+        console.log(num1, typeof (num1));//2.1
+
+
+        //二进制，以0b开头
+        var num2 = 0b1010;
+        console.log(num2, typeof (num2))// 10
+
+        //八进制 以0o开头 或者 以0开头
+        var num3 = 0o10;
+        console.log(num3, typeof (num3))// 8
+        var num3 = 011;
+        console.log(num3, typeof (num3))// 9
+
+        //十六进制 以0x开头
+        var num4 = 0x11;
+        console.log(num4, typeof (num4))//17
+
+        //科学计数法
+        var num5 = 1.1E+5;
+        console.log(num5, typeof (num5))//110000
+        var num5 = 2.3E+2;
+        console.log(num5, typeof (num5))//230
+
+        //无穷大和无穷小，在计算机中，分母可以为0，计算结果为无穷大
+        var num6 = 1 / 0;
+        console.log(num6, typeof (num6))//Infinity
+        var num6 = -Infinity;
+        console.log(num6, typeof (num6))
+
+        //正数的最大值和最小值
+        var num7 = Number.MAX_VALUE;
+        console.log(num7, typeof (num7))//1.7976931348623157e+308
+        var num7 = Number.MIN_VALUE;
+        console.log(num7, typeof (num7))//5e-324
+
+
+        //2的53次方以后，加奇数可能会出现计算错误，但是可以加一些偶数
+        var num8 = 2 ** 53
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 2
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 4
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 6
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 8
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 10
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 12
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 14
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 16
+        console.log(num8, typeof (num8))
+        var num8 = 2 ** 53 + 18
+        console.log(num8, typeof (num8))
+
+
+        //NaN，当使用强制转换时，如果使用无法转换的值来运算，得到的结果是NaN
+        var num9="a"-1;
+        console.log(num9, typeof(num9))//NaN
+
+
+
+    </script>
+</body>
+
+</html>

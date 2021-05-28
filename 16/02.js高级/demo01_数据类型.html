@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            数据类型：
+                基本数据类型：
+                    Number、String、Boolean、Null、Undefined、(Symbol、Bigint)
+                    其中：
+                        Number、String、Boolean也被称为基本包装类型
+
+                        生成一个基本包装类型的包装对象
+                            实例化当前的构造函数
+                            直接使用Object的方法
+
+                复杂数据类型
+                    object:
+                        Array
+                        object
+                        function
+                        Math
+                        Date
+                        RegExp
+        
+        */
+
+
+        var num1 = 1;
+        var num2 = new Number(1);
+        console.log(num2);
+        var num3 = new Object(1);
+        console.log(num3);
+
+
+        var str1 = "liangzai";
+        var str2 = new String("liangzai");
+        console.log(str2);
+        var str3 = new Object("shuaige");
+        console.log(str3);
+
+
+        var boo1 = true;
+        var boo2 = new Boolean(true);
+        console.log(boo2);
+        var boo3 = new Object(true);
+        console.log(boo3)
+    </script>
+</body>
+
+</html>

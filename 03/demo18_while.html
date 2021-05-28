@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            while(判断式){
+                代码块
+            }
+        */
+
+        // 用while()循环来计算1+2+3 ... +98+99+100的值。
+        /* var sum = 0
+        var i = 0;
+        while (i <= 100) {
+            sum += i;
+            i++;
+        }
+        console.log(sum) */
+
+        var sum = 0;
+        var i = 0;
+        //因为i++在sum加100的时候，i=99，所以如果判断式设置 小于等于100的话，就会加多101
+        while (i++ < 100) {
+            sum += i;
+        }
+        console.log(sum)
+    </script>
+</body>
+
+</html>

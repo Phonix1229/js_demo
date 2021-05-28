@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 将数组的0去掉
+        var arr = [1, 2, 5, 0, 2, 4, 0, 9, 0, 7];
+        console.log(arr);
+        /* var re = arr.filter(function (item, index) {
+            if (item === 0) {
+                return false;
+            } else {
+                return true;
+            }
+        });
+        console.log(re); */
+
+
+        // 数组排序去重
+        arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr);
+
+
+        for (var i = 0; i < arr.length; i++) {
+            var temp = arr[i];
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(arr[j], 1);
+                    j--;
+                }
+            }
+        }
+        console.log(arr)
+
+
+        /* arr.sort(function (a, b) {
+            return a - b;
+        });
+        console.log(arr);
+
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === arr[i + 1]) {
+                continue;
+            }
+            newArr.push(arr[i]);
+        }
+        console.log(newArr); */
+
+
+
+        // 返回数组的最大最小值
+        /*  var max = arr[0];
+         var min = arr[0];
+         for (var i = 0; i < arr.length; i++) {
+             if (max < arr[i]) {
+                 max = arr[i]
+             }
+             if (min > arr[i]) {
+                 min = arr[i];
+             }
+         }
+         console.log(max, min); */
+
+
+
+
+        // 求一组数中的所有数的和和平均值
+        /* var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        var re = sum / arr.length;
+        console.log(re); */
+
+
+        /*  var sum = 0;
+         arr.forEach(function (item, index, array) {
+             sum += item;
+         });
+         console.log(sum / arr.length) */
+
+
+
+
+        // 求一组数中的最大值和最小值，以及所在位置
+        /* var max = arr[0];
+        var min = arr[0];
+        var maxIndex = null;
+        var minIndex = null;
+        for (var i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i]
+                maxIndex = i;
+            }
+            if (min > arr[i]) {
+                min = arr[i];
+                minIndex = i;
+            }
+        }
+        console.log(max, maxIndex);
+        console.log(min, minIndex); */
+
+
+        // 翻转数组
+        /* var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            newArr.unshift(arr.shift());
+            i--;
+        }
+        console.log(newArr) */
+
+
+        /* var newArr =[];
+        while(arr.length>0){
+            newArr.unshift(arr.shift());
+        }
+        console.log(newArr); */
+
+
+
+        // 冒泡排序，从小到大
+
+    </script>
+</body>
+
+</html>

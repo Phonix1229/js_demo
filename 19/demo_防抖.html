@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <script>
+
+        var oIpt = document.getElementById("ipt");
+
+        //因为事件对象event没有传参进去，所以是undefined。
+        //this指向window是因为，这个函数是由window调用的，所以指向window
+        //我们就需要将 事件对象event传进去，和 更改this指向触发事件的元素
+        //防抖
+        function center(e) {
+            console.log(1);
+            console.log(e);
+            console.log(this)
+        }
+        oIpt.onkeydown = debounce(center, 500);
+        //初始化一个定时器
+        var timer = null;
+        function debounce(fn, time) {
+            //初始化一个上一次的时间
+            var lastTime = 0;
+            return function () {
+                //每次触发事件函数，把上一次的定时器清除
+                clearTimeout(timer);
+                //获取当前的时间
+                var nowTime = Date.now();
+                //这里的this指的就是oBox，这个是事件函数，所以它的this指向oBox
+                //如果在定时器中直接使用this，那么this指向的是定时器
+                var _this = this;
+                //arguments[0]，是当前事件函数的event对象
+                //如果在定时器中直接使用arguments[0]，那么arguments[0]指的是定时器函数的实参
+                var e = arguments[0];
+                timer = setTimeout(function () {
+                    if (nowTime - lastTime < time) {
+                        return;
+                    }
+                    //使用call方法调用fn函数，并且更改fn的this指向oBox
+                    fn.call(_this, e);
+                }, time)
+            }
+        }
+    </script>
+</body>
+
+</html>

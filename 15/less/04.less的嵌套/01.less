@@ -1,0 +1,30 @@
+#outer{
+    width: 1000px;
+    height:500px;
+    margin:0 auto;
+    
+    .list{
+        width: 300px;
+        background-color: salmon;
+
+        //&符号代表父级引用
+        &>li{
+            text-align: center;
+            line-height: 50px;
+            
+            &:nth-child(2){
+                color:#666;
+            }
+            &:nth-child(2):hover{
+                background-color: sandybrown;
+            }
+            &:hover{
+                color:red;
+            }
+
+            span{
+                background-color: royalblue;
+            }
+        }
+    }
+}

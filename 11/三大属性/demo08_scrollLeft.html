@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            border: 2px solid red;
+        }
+
+        #con {
+            width: 1000px;
+            height: 1000px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="btn">我叫你点我你🐉🐎</button>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+    <script>
+
+
+        /* 
+            scrollTop和scrollLeft
+                获取或设置滚动条滚动过的距离
+        
+        */
+
+        var oBtn = document.getElementById("btn");
+        var oBox = document.getElementById("box")
+        oBtn.onclick = function () {
+            // console.log(oBox.scrollTop)
+            oBox.scrollTop = 500;
+            oBox.scrollLeft = 300
+        }
+    </script>
+</body>
+
+</html>

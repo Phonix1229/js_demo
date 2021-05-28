@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">点我</button>
+    <script>
+        /* 
+            判断闰年：
+                年份能够被4整除且不能被100整除，或者年份能够被400整除
+        */
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+
+
+        oBtn.onclick = function () {
+            var years = Number(oIpt.value);
+            console.log(years)
+            if (years % 4 === 0 && years % 100 !== 0 || years % 400 === 0) {
+                alert(years + "年是闰年");
+            } else {
+                alert(years + "年不是闰年");
+            }
+        }
+    </script>
+</body>
+
+</html>

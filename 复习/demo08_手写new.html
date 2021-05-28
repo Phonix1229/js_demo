@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            new做了什么
+                创建一个对象，并把这个对象返回
+                把构造函数的this指向这个对象
+                将这个对象的原型链修改，对象的隐式原型指向构造函数的显示原型
+        */
+
+        function Person(name,age) {
+            this.name = name;
+            this.age= age;
+        }
+        Person.prototype.eat=function (){
+            console.log("靓仔")
+        }
+
+        var p1 = new Person('嘿嘿',18);
+
+        function myNew(constur) {
+            var obj = {};
+
+            var arg = Array.from(arguments).slice(1);
+            var re = constur.apply(obj, arg);
+
+            obj.__proto__ = constur.prototype;
+
+            if (typeof re === "object" && re === null || typeof re === "function") {
+                return re;
+            }
+
+            return obj;
+        }
+
+        var p2 = myNew(Person, '嘻嘻', 18)
+        console.log(p1.eat === p2.eat)
+    </script>
+
+</body>
+
+</html>

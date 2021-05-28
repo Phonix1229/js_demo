@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            text-align: center;
+            width: 600px;
+            border: 1px solid green;
+            margin: 50px auto;
+        }
+
+        #outer #title {
+            display: flex;
+        }
+
+        #outer #title h2 {
+            width: 198px;
+            border: 1px solid red;
+        }
+
+        #outer #title h2.active {
+            background-color: red;
+        }
+
+        #outer #con {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #outer #con li {
+            height: 300px;
+            line-height: 300px;
+            border: 1px solid #000;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题1</h2>
+            <h2>标题2</h2>
+            <h2>标题3</h2>
+        </div>
+        <ul id="con">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        var oTitle = document.getElementById("title");
+        var oCon = document.getElementById("con");
+        var oH2s = oTitle.querySelectorAll("h2");
+        var oLis = oCon.querySelectorAll("li");
+
+        var timer = null;
+
+        oH2s.forEach(function (item, index) {
+            item.onclick = function () {
+                //点击之后先清空所有样式
+                clearInterval(timer);
+                oH2s.forEach(function (item, index) {
+                    item.classList.remove("active");
+                })
+                //给点击的h2添加样式
+                this.classList.add("active");
+
+                //获取起始位置
+                var startLocation = oCon.scrollTop;
+                //获取结束位置
+                var endLocation = index * oLis[0].offsetHeight;
+                //设置起始步数
+                var startStep = 0;
+                //设置结束步数
+                var endStep = 40;
+
+                //计算每一步走的距离
+                var everyStep = (endLocation - startLocation) / endStep;
+
+                timer = setInterval(function () {
+                    //步数累加用来判断临界值
+                    startStep++;
+
+                    //判断临界值
+                    if (startStep >= endStep) {
+                        clearInterval(timer);
+                    }
+                    //让起始步数累加每一次走的距离
+                    startLocation += everyStep;
+
+                    //然后把最新的起始步数赋值给滚动条
+                    oCon.scrollTop = startLocation;
+
+                }, 10)
+            }
+        })
+    </script>
+</body>
+
+</html>

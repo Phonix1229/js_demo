@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+             bind作用：
+                 1.改变了函数的上下文对象
+                 2.返回一个改变上下文对象指向的一个函数
+ 
+                 //换一种思考方法
+                 bind返回了一个函数，当我调用这个函数的时候，把函数的this指向改变为bind的第一个参数
+         */
+
+        Function.prototype.myBind = function (context) {
+
+            //这个this指向调用myBind的fn函数，将这个this保存下来
+            var _this = this;
+
+            //获取用户传递的参数，并截取第二位开始的值，用数组保存
+            var arg = Array.from(arguments).slice(1)
+            // console.log(arg)
+
+            //bind返回一个函数
+            return function () {
+                //当这个函数执行的时候，再获取调用bind的fn函数，然后再调用fn函数，改变fn函数的this
+                _this.apply(context, arg)
+            }
+        }
+
+        function fn(a, b) {
+            console.log(this, a + b)
+        }
+
+        var re = fn.myBind(1, 2, 3)
+        re();
+        var re = fn.myBind("123", 2, 3)
+        re();
+        var re = fn.myBind(null, 2, 3)
+        re();
+        var re = fn.myBind(undefined, 2, 3)
+        re();
+        var re = fn.myBind({}, 2, 3)
+        re();
+    </script>
+</body>
+
+</html>

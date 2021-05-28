@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var num = prompt("请输入数字选择功能（取钱扣1，查询扣2，存钱扣3，退出扣4）");
+        switch(num){
+            case "1":
+                confirm("正在取钱，请稍等");
+                break;
+            case "2":
+                confirm("正在查询，请稍等");
+                break;
+            case "3":
+                confirm("正在存钱，请稍等");
+                break;
+            case "4":
+                confirm("正在退出，请稍等");
+                break;
+            default:
+                confirm("请重新输入");
+        }
+    </script>
+</body>
+
+</html>

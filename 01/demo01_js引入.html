@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 
+        在head中导入<script>，是不建议的，因为在html中，是从上到下解析代码的，此时执行到这里，box还没有解析到，所以是为null的
+     -->
+     <script>
+        //声明一个box1变量，获取id为box的元素
+        var box1 = document.getElementById('box');
+        //使用console.log(box1)将变量box1的值打印出来
+        console.log(box1);
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <!-- 
+        在body关标签上面导入<cript>,是建议使用的，因为html代码在body结束前已经解析完了，所以在这里导入，就不会出现，没有解析到html的情况
+     -->
+    <script>
+        //声明一个box1变量，获取id为box的元素
+        var box1 = document.getElementById('box');
+        //使用console.log(box1)将变量box1的值打印出来
+        console.log(box1);
+    </script>
+</body>
+
+<!-- 
+    body关标签下面导入<script>，浏览器会自动将<script>放在body关标签上面。
+ -->
+<script>
+    //声明一个box1变量，获取id为box的元素
+    var box1 = document.getElementById('box');
+        //使用console.log(box1)将变量box1的值打印出来
+        console.log(box1);
+</script>
+
+</html>

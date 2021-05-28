@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.求1 - n之间所有数的和
+        /* function add1(n) {
+            var sum = 0;
+            for (var i = 0; i <= n; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        //调用函数
+        var re = add1(100);
+        console.log(re); */
+
+
+
+        // 求n - m之间所有数的和
+        /*  function add2(n, m) {
+             var sum = 0;
+             for (var i = n; i <= m; i++) {
+                 sum += i;
+             }
+             return sum;
+         }
+         //调用函数
+         var re = add2(10, 100);
+         console.log(re); */
+
+
+
+        // 求2个数中的最大值
+        /* function max1(a, b) {
+            if (a < b) {
+                return b;
+            } else {
+                return a;
+            }
+        }
+        var re = max1(10, 20);
+        console.log(re); */
+
+
+
+        // 求3个数中的最大值
+        /* function max2(a, b, c) {
+            if (a > b && a > c) {
+                return a;
+            } else if (b > a && b > c) {
+                return b;
+            } else {
+                return c;
+            }
+        }
+        var re = max2(10, 20, 30);
+        console.log(re); */
+
+
+        // 判断一个数是否是素数(又叫质数， 只能被1和自身整除的数)
+
+        /* function num1(a) {
+            for (var i = 2; i < a; i++) {
+                if (a % i === 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        }
+        var re = num1(11);
+        if (re === true) {
+            console.log("是质数");
+        } else {
+            console.log("不是质数");
+        } */
+
+        // 求任意个数的最大值
+        /* function max3() {
+            var num = arguments[0]
+            for (var i = 0; i < arguments.length; i++) {
+                if (num < arguments[i]) {
+                    num = arguments[i];
+                }
+            }
+            return num;
+        }
+        var re = max3(12,50,5,15,20,1,30);
+        console.log(re); */
+
+        // 求任意个数的和
+        /* function add3() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        var re = add3(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        console.log(re);//55 */
+
+
+
+    </script>
+</body>
+
+</html>

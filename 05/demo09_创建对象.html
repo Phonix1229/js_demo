@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        //字面量创建方法，创建对象的时候，可以直接把属性书写在对象中
+        var obj1 = {
+            //对象的属性，对对象状态的描述
+            name: "靓仔",
+            age: 18,
+            hobby: "帅帅帅",
+            //这也是对象的属性，是特殊的属性可以被调用，被称作对象的方法
+            a: function () {
+                console.log("帅哥");
+            }
+        };
+        //创建对象之后，也可以直接给对象再次扩展属性和办法
+        obj1.phone = "13838383838"
+        console.log(obj1);
+
+
+        //实例化创建对象方法，不能在创建的时候扩展属性，但是可以直接给对象添加
+        var obj2 = new Object();
+        console.log(obj2);
+        obj2.name = "kaikai";
+        obj2.wife = function () {
+            console.log("凤凤");
+        }
+        console.log(obj2);
+
+
+    </script>
+</body>
+
+</html>

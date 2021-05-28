@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组排序去重
+
+
+        var arr = [1, 4, 8, 2, 6, 1, 2, 5, 4, 7, 8];
+        console.log(arr);
+
+        // for for
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    arr.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        console.log(arr)
+
+
+        //在newArr中第一次出现的，就添加到newArr数组
+        //声明一个新数组
+        var newArr = [];
+        //遍历arr数组，如果newArr数组中没有遍历到这个值，则添加
+        arr.forEach(function (item, index) {
+            if (newArr.indexOf(item) === -1){
+                newArr.push(item);
+            }
+        });
+        console.log(newArr);
+
+
+
+        //筛选item，如果有多个，但是下标不一样，则不要
+        var re = arr.filter(function (item, index) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr.indexOf(item) === index){
+                    return true;
+                }
+            }
+        })
+        console.log(re);
+    </script>
+</body>
+
+</html>

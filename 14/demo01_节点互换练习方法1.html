@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #outer {
+            width: 600px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            display: flex;
+            text-align: center;
+
+        }
+
+        #outer div {
+            width: 200px;
+            background-color: skyblue;
+
+
+        }
+
+        #outer div p {
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+
+
+
+        #outer #center {
+            width: 200px;
+            height: 100%;
+            background-color: greenyellow;
+        }
+
+        #outer #center button {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="left">
+            <p>left的p1</p>
+            <p>left的p2</p>
+            <p>left的p3</p>
+            <p>left的p4</p>
+        </div>
+        <div id="center">
+            <button id="toRight">&gt;&gt;&gt;&gt;&gt;&gt;</button>
+            <button id="toLeft">&lt;&lt;&lt;&lt;&lt;&lt;</button>
+        </div>
+        <div id="right">
+            <p>right的p1</p>
+            <p>right的p2</p>
+            <p>right的p3</p>
+            <p>right的p4</p>
+        </div>
+    </div>
+
+    <script>
+
+
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var toRight = document.getElementById("toRight");
+        var toLeft = document.getElementById("toLeft");
+        var leftPs = oLeft.querySelectorAll("#left p");
+        var rightPs = oRight.querySelectorAll("#right p");
+        //遍历左边的p，绑定点击事件
+        for (var i = 0; i < leftPs.length; i++) {
+
+            leftPs[i].onclick = function () {
+
+                //给每个p点击之后的反应
+                //将点击的p变红
+                this.style.background = "red";
+                //给点击的p添加自定义属性
+                this.dataset.click = "true";
+            }
+        }
+
+
+        //遍历右边的p，绑定点击事件
+        for (var i = 0; i < rightPs.length; i++) {
+            rightPs[i].onclick = function () {
+                //给每个p点击之后的反应
+                //将点击的p变红
+                this.style.background = "red";
+                //给点击的p添加自定义属性
+                this.dataset.click = "true";
+            }
+        }
+
+        //给toRight绑定点击事件
+        toRight.onclick = function () {
+            var leftPs = oLeft.querySelectorAll("#left p");
+
+
+            //遍历所有p，找出点击的p
+            for (var i = 0; i < leftPs.length; i++) {
+                // 判断哪个p有自定义属性
+                if (leftPs[i].dataset.click) {
+                    //向右边插入点击的p
+                    oRight.appendChild(leftPs[i]);
+                    //删除移动的p的自定义属性
+                    delete leftPs[i].dataset.click;
+                    //清除p的颜色
+                    leftPs[i].style.background = "transparent";
+                    i--;
+                }
+
+            }
+        }
+
+
+
+        //给toLeft绑定点击事件
+        toLeft.onclick = function () {
+            var rightPs = oRight.querySelectorAll("#right p");
+            //遍历所有p，找出点击的p
+            for (var i = 0; i < rightPs.length; i++) {
+                // 判断哪个p有自定义属性
+                if (rightPs[i].dataset.click) {
+                    //向左边插入点击的p
+                    oLeft.appendChild(rightPs[i]);
+                    //删除移动的p的自定义属性
+                    delete rightPs[i].dataset.click;
+                    //清除p的颜色
+                    rightPs[i].style.background = "transparent";
+                    i--;
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

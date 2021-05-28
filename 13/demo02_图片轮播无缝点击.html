@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: auto;
+        }
+
+        .con {
+
+            display: flex;
+        }
+
+        .con img {
+            width: 500px;
+        }
+
+        .outer p {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(112, 255, 255, 0.5);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .outer ul {
+            display: flex;
+
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+
+        .outer ul li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 82, 255, 0.5);
+            margin-left: 5px;
+        }
+
+        .outer ul li.active {
+            background-color: rgba(255, 82, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="./img/kof-01.jpg" alt="">
+                <img src="./img/kof-02.jpg" alt="">
+                <img src="./img/kof-03.jpg" alt="">
+                <img src="./img/kof-04.jpg" alt="">
+                <img src="./img/kof-05.jpg" alt="">
+                <img src="./img/kof-01.jpg" alt="">
+            </div>
+        </div>
+        <p class="left">&lt;</p>
+        <p class="right">&gt;</p>
+        <ul class="list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var oInner = document.querySelector(".inner")
+        var oCon = document.querySelector(".con");
+        var oImgs = oCon.querySelectorAll(".con img")
+        var oLeft = document.querySelector(".left")
+        var oRight = document.querySelector(".right")
+        var oLis = document.querySelectorAll(".list li")
+
+
+        var autoTimer = null, moveTimer = null;
+        var i = 0;
+
+        //设置一个图片轮播的定时器
+        autoTimer = setInterval(function () {
+
+            i++;
+            if (i > oImgs.length - 1) {
+                oInner.scrollLeft = 0;
+                i = 1;
+            }
+            //获取滚动条的初始位置
+            var startLocation = oInner.scrollLeft;
+            //获取滚动条的结束位置
+            var endLocation = i * oImgs[0].offsetWidth;
+            //设置初始步数
+            var startStep = 0;
+            //设置结束步数
+            var endStep = 50;
+            //计算每一步滚动条走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            //设置一个定时器，图片滚动的动画
+            moveTimer = setInterval(function () {
+                //初始步数累加
+                startStep++;
+                //判断动画定时器是否执行完成
+                if (startStep >= endStep) {
+                    //如果执行完成则清除动画定时器
+                    clearInterval(moveTimer)
+                }
+                //将每一步走的距离加给滚动条时开始位置
+                startLocation += everyStep;
+                //将累加之后的开始位置赋值给滚动条
+                oInner.scrollLeft = startLocation;
+            }, 20)
+
+            //遍历所有li，清空样式
+            oLis.forEach(function (item, index) {
+                item.classList.remove("active");
+            })
+            //给当前图片对应下标的 li 添加样式
+            oLis[i === 5 ? 0 : i].classList.add("active");
+
+        }, 2000)
+
+        oRight.onclick = function () {
+            //每次点击都清除自动定时器
+            clearInterval(autoTimer)
+            //每次点击都清除动画定时器
+            clearInterval(moveTimer)
+
+            i++;
+            // 判断临界值 i
+            if (i > oImgs.length - 1) {
+                oInner.scrollLeft = 0;
+                i = 1;
+            }
+
+            //获取滚动条的初始位置
+            var startLocation = oInner.scrollLeft;
+            //获取滚动条的结束位置
+            var endLocation = i * oImgs[0].offsetWidth;
+            //设置初始步数
+            var startStep = 0;
+            //设置结束步数
+            var endStep = 50;
+            //计算每一步滚动条走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            //设置一个定时器，图片滚动的动画
+            moveTimer = setInterval(function () {
+                //初始步数累加
+                startStep++;
+                //判断动画定时器是否执行完成
+                if (startStep >= endStep) {
+                    //如果执行完成则清除动画定时器
+                    clearInterval(moveTimer)
+                }
+                //将每一步走的距离加给滚动条时开始位置
+                startLocation += everyStep;
+                //将累加之后的开始位置赋值给滚动条
+                oInner.scrollLeft = startLocation;
+            }, 20)
+
+
+            //遍历所有li，清空样式
+            oLis.forEach(function (item, index) {
+                item.classList.remove("active");
+            })
+            //给当前图片对应下标的 li 添加样式
+            oLis[i === 5 ? 0 : i].classList.add("active");
+        }
+
+        oLeft.onclick = function () {
+            //每次点击都清除自动定时器
+            clearInterval(autoTimer)
+            //每次点击都清除动画定时器
+            clearInterval(moveTimer)
+
+            i--;
+            // 判断临界值 i
+            if (i < 0) {
+                oInner.scrollLeft = oImgs[0].offsetWidth * (oImgs.length - 1)
+                i = oImgs.length - 2;
+            }
+
+            //获取滚动条的初始位置
+            var startLocation = oInner.scrollLeft;
+            //获取滚动条的结束位置
+            var endLocation = i * oImgs[0].offsetWidth;
+            //设置初始步数
+            var startStep = 0;
+            //设置结束步数
+            var endStep = 50;
+            //计算每一步滚动条走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            //设置一个定时器，图片滚动的动画
+            moveTimer = setInterval(function () {
+                //初始步数累加
+                startStep++;
+                //判断动画定时器是否执行完成
+                if (startStep >= endStep) {
+                    //如果执行完成则清除动画定时器
+                    clearInterval(moveTimer)
+                }
+                //将每一步走的距离加给滚动条时开始位置
+                startLocation += everyStep;
+                //将累加之后的开始位置赋值给滚动条
+                oInner.scrollLeft = startLocation;
+            }, 20)
+
+
+            //遍历所有li，清空样式
+            oLis.forEach(function (item, index) {
+                item.classList.remove("active");
+            })
+            //给当前图片对应下标的 li 添加样式
+            oLis[i === 5 ? 0 : i].classList.add("active");
+        }
+
+        //遍历所有li，给每个li绑定点击事件
+        oLis.forEach(function (item, index) {
+            item.onclick = function () {
+                //每次点击都清除自动定时器
+                clearInterval(autoTimer)
+                //每次点击都清除动画定时器
+                clearInterval(moveTimer)
+
+
+                oLis.forEach(function (item, index) {
+                    item.classList.remove("active");
+                })
+                this.classList.add("active");
+                i = index;
+
+                //获取滚动条的初始位置
+                var startLocation = oInner.scrollLeft;
+                //获取滚动条的结束位置
+                var endLocation = i * oImgs[0].offsetWidth;
+                //设置初始步数
+                var startStep = 0;
+                //设置结束步数
+                var endStep = 50;
+                //计算每一步滚动条走的距离
+                var everyStep = (endLocation - startLocation) / endStep;
+
+                //设置一个定时器，图片滚动的动画
+                moveTimer = setInterval(function () {
+                    //初始步数累加
+                    startStep++;
+                    //判断动画定时器是否执行完成
+                    if (startStep >= endStep) {
+                        //如果执行完成则清除动画定时器
+                        clearInterval(moveTimer)
+                    }
+                    //将每一步走的距离加给滚动条时开始位置
+                    startLocation += everyStep;
+                    //将累加之后的开始位置赋值给滚动条
+                    oInner.scrollLeft = startLocation;
+                }, 20)
+
+            }
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

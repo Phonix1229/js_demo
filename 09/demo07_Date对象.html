@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Date对象
+                new Date()获取当前的事件
+                计算机保存的时间是是从1970年1月1日8时到当前的总毫秒数
+        
+        */
+        
+        var now = new Date();
+        console.log(now);//Thu Apr 29 2021 21:55:26 GMT+0800 (中国标准时间)
+
+        //时间转换数字之后也是得到毫秒数
+        console.log(+now)
+
+        //valueOf()方法得到原始值
+        var num = now.valueOf();
+        console.log(num)
+        console.log(now.valueOf());//1619704584649
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>学生信息录入系统</h2>
+    <input type="text" id="ipt">
+    <button id="btn">点击</button>
+    <p id="con">许开镇</p>
+
+    <script>
+
+        /* 
+            1，获取元素
+            2，绑定点击事件
+            3，获取input元素的值
+        */
+        var oIpt = document.getElementById("ipt");
+        var oBtn = document.getElementById("btn");
+        var oP = document.getElementById("con");
+
+        oBtn.onclick = function () {
+            //innerHTML可以解析变迁
+            oP.innerHTML += "<hr>" + oIpt.value;
+            oIpt.value=null;
+        }
+    </script>
+</body>
+
+</html>

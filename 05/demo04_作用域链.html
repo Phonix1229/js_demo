@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            作用域链：
+                作用域链的用途，是保证对 执行环境有权访问的所有变量和函数的 有序访问
+                作用域链上都是变量和函数组成的。
+                作用域链是在函数声明的时候就已经确定了，但是因为函数没有调用，所以作用域链并不完整。
+                当函数执行的时候，执行上下文中创建了变量对象，把当前的变量对象添加到了已经存在作用域链的最前端，完成整个作用域链
+                作用域链的最前端是当前的执行上下文的变量对象，最末端是window对象。
+                解析变量的时候是沿着作用域链一级一级搜索的过程，如果到window也没有找到，则直接报错（标识符 is not defined）
+        
+        
+        */
+
+        /* var a = 2;
+        function fn1() {
+
+            console.log(a);
+
+            function fn2() {
+                console.log(a);
+            }
+
+            fn2();
+        }
+
+        fn1(); */
+
+
+
+
+        /* 
+            函数在声明的时候已经确定了作用域链（但是作用域链并不完整）
+
+        
+        */
+
+
+        // 声明全局变量b
+        var b = 3;
+
+
+        /* 
+            函数在声明的时候就已经确定了作用域链，但是作用域链并不完整。
+            作用域链上都是各段代码的变量对象，但是fn并没有调用，所以fn的变量对象并没有生成
+            当fn调用的时候，只是把自己的变量对象添加到作用域的头部，完成作用域链
+        */
+        function fn() {
+            console.log(b);//3
+        }
+
+        function fn2() {
+            var b = 4;
+            fn1();
+        }
+        fn2();
+    </script>
+</body>
+
+</html>

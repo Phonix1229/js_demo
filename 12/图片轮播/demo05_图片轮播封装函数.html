@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 500px;
+            border: 1px solid #000;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: hidden;
+        }
+
+        .con {
+            display: flex;
+        }
+
+        .con img {
+            width: 500px;
+        }
+
+        .outer p {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(112, 255, 255, 0.5);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .outer ul {
+            display: flex;
+
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+
+        .outer ul li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(255, 82, 255, 0.5);
+            margin-left: 5px;
+        }
+
+        .outer ul li.active {
+            background-color: rgba(255, 82, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="./img/kof-01.jpg" alt="">
+                <img src="./img/kof-02.jpg" alt="">
+                <img src="./img/kof-03.jpg" alt="">
+                <img src="./img/kof-04.jpg" alt="">
+                <img src="./img/kof-05.jpg" alt="">
+            </div>
+        </div>
+        <p class="left">&lt;</p>
+        <p class="right">&gt;</p>
+        <ul class="list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        var oInner = document.querySelector(".inner")
+        var oCon = document.querySelector(".con");
+        var oImgs = oCon.querySelectorAll(".con img")
+        var oLeft = document.querySelector(".left")
+        var oRight = document.querySelector(".right")
+        var oLis = document.querySelectorAll(".list li")
+
+        //初始化变量 i ，用来表示到哪张图的下标
+
+        var autoTimer = null, moveTimer = null;
+
+
+        function move() {
+            //获取滚动条初始位置
+            var startLocation = oInner.scrollLeft;
+            //获取滚动条结束位置
+            var endLocation = i * oImgs[0].offsetWidth;
+            //设置初始步数
+            var startStep = 0;
+            //设置结束步数
+            var endStep = 50;
+            //计算每一步滚动条走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+            //动画效果
+            moveTimer = setInterval(function () {
+                //起始步数累加，用来判断临界值
+                startStep++;
+                //判断临界值
+                if (startStep >= endStep) {
+                    //如果达到临界值，则清除定时器
+                    clearInterval(moveTimer)
+                }
+                //滚动条起始位置加每一步走的距离，再赋值给滚动条，实现动画效果
+                startLocation += everyStep;
+                oInner.scrollLeft = startLocation;
+            }, 20)
+        }
+
+        function autoMove() {
+            autoTimer = setInterval(function () {
+                //每隔两秒清除一次定时器，防止定时器叠加
+                clearInterval(moveTimer)
+                //每隔两秒下标 i 累加
+                i++;
+                //判断 i 临界值
+                if (i > oImgs.length - 1) {
+                    //如果i到达临界值，则重新赋值0。相当于从第一张图开始
+                    i = 0;
+                }
+                //获取滚动条初始位置
+                var startLocation = oInner.scrollLeft;
+                //获取滚动条结束位置
+                var endLocation = i * oImgs[0].offsetWidth;
+                //设置初始步数
+                var startStep = 0;
+                //设置结束步数
+                var endStep = 50;
+                //计算每一步滚动条走的距离
+                var everyStep = (endLocation - startLocation) / endStep;
+                //动画效果
+                moveTimer = setInterval(function () {
+                    //起始步数累加，用来判断临界值
+                    startStep++;
+                    //判断临界值
+                    if (startStep >= endStep) {
+                        //如果达到临界值，则清除定时器
+                        clearInterval(moveTimer)
+                    }
+                    //滚动条起始位置加每一步走的距离，再赋值给滚动条，实现动画效果
+                    startLocation += everyStep;
+                    oInner.scrollLeft = startLocation;
+                }, 20)
+
+                //控制下标，先清空，再给下标
+                oLis.forEach(function (item, index) {
+                    item.classList.remove("active")
+
+                })
+                oLis[i].classList.add("active");
+
+            }, 2000)
+        }
+
+        function list() {
+            //控制下标，先清空，再给下标
+            oLis.forEach(function (item, index) {
+                item.classList.remove("active")
+
+            })
+            oLis[i].classList.add("active");
+        }
+
+        function clear() {
+            //每次点击的时候，清除自动走定时器
+            clearInterval(autoTimer);
+            //每次点击的时候，清除动画定时器
+            clearInterval(moveTimer);
+        }
+        var i = 0;
+        autoMove();
+
+        oLeft.onclick = function () {
+            clear();
+            //每隔两秒下标 i 累加
+            i--;
+            //判断 i 临界值
+            if (i < 0) {
+                //如果i到达临界值，则重新赋值0。相当于从第一张图开始
+                i = oImgs.length - 1;
+            }
+            move();
+            list();
+            autoMove();
+        }
+
+        oRight.onclick = function () {
+            clear();
+            //每隔两秒下标 i 累加
+            i++;
+            //判断 i 临界值
+            if (i > oImgs.length - 1) {
+                //如果i到达临界值，则重新赋值0。相当于从第一张图开始
+                i = 0;
+            }
+            move();
+            list();
+            autoMove();
+        }
+
+
+        oLis.forEach(function (item, index) {
+
+            item.onclick = function () {
+                clear();
+                list();
+
+                //index就是当前点击的位置，将index赋值给i
+                i = index;
+                move();
+                list();
+                autoMove();
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

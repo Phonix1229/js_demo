@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <ul id="box">
+        <li>1 <em>em</em> <span>span</span></li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+
+        /* 
+            事件委托：
+                事件代理、时间托管
+                把事件交给自己的父级或者祖辈元素绑定
+                冒泡的原理，把自己发生事件的时候，也会触发父级代理的事件
+
+
+                在event事件对象中，有一个target属性代表事件发生的目标元素
+
+
+                优点：
+                    减少遍历，提高效率
+                    可以给未来的元素绑定事件
+                    
+        
+        */
+
+
+        var oBtn = document.getElementById("btn");
+        var oBox = document.getElementById("box");
+        var oLis = oBox.querySelectorAll("#box li");
+
+
+        oBox.onclick = function (e) {
+
+            console.log(e.target);
+            //e.target是点击哪个li，就获取到哪个li，但是前提是里面没有其他元素，否则点到哪个元素，就只有那个元素变红,包括ul
+            // e.target.style.background="red";
+
+            //可以添加判断，判断点击的是否是li
+            //但是这样，如果li里面有其他元素，没有直接点击到li，也是不会变红的
+            if (e.target.nodeName === "LI") {
+                e.target.style.background = "red";
+            }
+        }
+
+        //点击创建新li之后，点击新li是可以变红的
+        oBtn.onclick=function (){
+            var newLi = document.createElement("li")
+            newLi.textContent = "newli";
+            oBox.appendChild(newLi);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            匿名函数
+                声明函数没有名字
+
+            IIFE
+                Immediately 立即
+                Invoked 调用
+                Function 函数
+                Expression 表达式
+                立即调用函数表达式（匿名函数自调用）
+
+            小括号的作用
+                1，提升优先级
+                2，函数调用
+        
+        */
+
+        (function () {
+            alert(1);
+        })();
+
+
+
+        // 使用一元运算符! ~ + - 写在匿名函数前面，可以让函数变成一体，在大括号后面加小括号调用
+        //其中 ~ 和 ! 使用的比较多
+        !function (){
+            alert(2);
+        }();
+        ~function (){
+            alert(3);
+        }();
+        -function (){
+            alert(4);
+        }();
+
+        +function (){
+            alert(5);
+        }();
+       
+
+
+    </script>
+</body>
+
+</html>

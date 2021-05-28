@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            加法运算符
+                加法运算中，只要两个操作数出现一个字符串，那么都会转为字符串拼接方式
+                只要出现对象，都会转为字符串拼接
+        */
+
+        console.log(2 + 2)//4
+        console.log(2 + "2")//22
+        console.log("2" + "2")//22
+        console.log(true + "2")//true2
+        console.log(null + "2")//null2
+        console.log(undefined + "2")//undefined2
+        console.log([2] + "2")//22
+        console.log([2, 2] + "2")//2,22
+        console.log({} + "2")//[object Object]2
+        console.log(function () { } + "2")//function(){}2
+
+        /* 
+            字符串拼接
+        */
+
+        var name = "许开镇";
+        var age = 18;
+        var hobby = "帅爆了"
+
+        alert("我叫" + name + ",今年" + age + "岁，我简直" + hobby);
+
+        var str1 = 1 + 2 + "3" + 4;//334
+        console.log(str1)
+        var str2 = "1" + 2 + "3" + 4;//1234
+        console.log(str2)
+        var str3 = "1" + 2 + 3 + 4;//1234
+        console.log(str3)
+
+
+
+        var num1 = 1;
+        var num2 = 2;
+        console.log("num5 + num6 = " + num1 + num2);//num5 + num6 = 12
+    </script>
+</body>
+
+</html>

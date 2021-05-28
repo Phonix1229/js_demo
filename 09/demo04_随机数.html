@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Math.random()，范围[0,1),包括0，不包括1
+
+
+            
+        
+        */
+
+        /* setInterval(function () {
+            console.log(Math.random())
+        },1000) */
+
+        /*  setInterval(function () {
+             //在0到100中随机生成数
+             console.log(Math.random() * 100)
+         }, 100) */
+
+        //20到100，可分解为0+20到1*80+20
+        /* setInterval(function () {
+            console.log(Math.random() * 80 + 20);
+        }, 100) */
+
+
+        //15到200，0*185+15到1*185+15
+        //0*(200-15)+15    1*(200-15)+15
+
+
+        // 设置一个函数，输入两个数，这两个数之间生成的随机数
+        function num(a, b) {
+            console.log(Math.random() * (b - a) + a);
+        }
+
+        /* setInterval(function () {
+            num(100, 1000);
+        }, 100) */
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            隐式原型
+                每一个对象都有一个隐式原型__proto__
+                每一个函数都有一个显示原型prototype
+                对象的隐式原型都指向其构造函数的显示原型
+
+                使用
+                    当对象获取某个属性，自己没有的时候，会沿着隐式原型__proto__找到其构造函数的显示原型prototype
+                    当给对象设置一个属性或方法的时候，不会通过隐式原型，而是直接给对象设置上去
+
+        */
+
+        var arr = [1, 2, 3];
+        console.log(arr.__proto__)
+        //当对象获取某个属性，自己没有的时候，会沿着隐式原型__proto__找到其构造函数的显示原型prototype
+        console.log(arr.__proto__ === Array.prototype);//true
+
+
+        function Person() {
+
+        }
+        Person.prototype.hello = function () {
+            console.log("爷最帅");
+        }
+        var p1 = new Person();
+        //自己没有say，会沿着__proto__找到Person的prototype
+        p1.hello()
+
+
+        p1.do = function () {
+            console.log("哈哈哈哈哈");
+        }
+        p1.do();
+
+
+        //给p1也设置一个hello方法
+        p1.hello = function () {
+            console.log("爷好帅")
+        }
+        //调用hello方法的时候，如果自己已经有这个方法，则不会去构造函数的原型对象查找
+        p1.hello();
+
+
+
+        var o = {
+            name: "liangzai",
+            do: function () {
+
+            }
+        }
+    </script>
+</body>
+
+</html>

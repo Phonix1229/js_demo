@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            声明全局变量
+                在全局作用域中，使用var来声明一个全局变量
+                直接给一个没有声明的变量赋值，会把这个变量声明为全局变量
+                在任意位置给window对象扩展属性和方法，则也是全局变量和全局函数
+        
+         */
+
+        var a = 1;
+        console.log(a);
+
+        // b没有声明，直接赋值的时候，b被声明成一个全局变量
+        b = 2;
+        console.log(b);
+
+        function fn1() {
+            // 声明了一个全局变量c，并赋值5
+            c = 5;
+
+            //如果全局变量中有这个变量，则这个变量也会改变值
+            a = 3;
+
+            // 在此语句中，声明了局部变量d，ef并没有被声明，所以ef是全局变量
+            var d = e = f = 4;
+
+            //给window对象扩展属性，其实就是声明全局变量
+            window.hello = "world";
+        }
+        //调用函数
+        fn1();
+      
+        console.log(a);
+        
+        console.log(c);
+
+        // d是局部变量，不能在全局作用域中使用
+        // console.log(d);
+
+        
+        var g = e + f;
+        console.log(g);
+
+        console.log(window.e,window.f);
+
+        console.log(hello);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="con"></p>
+    <script>
+        var oCon = document.getElementById("con")
+
+
+
+        //设置定时器
+        setInterval(function () {
+
+            //获取当前时间
+            var now = new Date();
+
+            //获取6月1日时间
+            var future = new Date("2022-4-23 0:00")
+
+            //相减得到毫秒
+            var time = future - now;
+
+
+            //计算日期
+            var day = Math.floor(time / (1000 * 60 * 60 * 24))
+            var _day = time % (1000 * 60 * 60 * 24)
+            day = day < 10 ? "0" + day : day
+
+            //计算时
+            var hours = Math.floor(_day / (1000 * 60 * 60))
+            var _hours = _day % (1000 * 60 * 60)
+            hours = hours < 10 ? "0" + hours : hours
+
+
+            //计算分
+            var minutes = Math.floor(_hours / (1000 * 60));
+            var _minutes = _hours % (1000 * 60)
+            minutes = minutes < 10 ? "0" + minutes : minutes
+
+
+            //计算秒
+            var seconds = Math.floor(_minutes / 1000)
+            seconds = seconds < 10 ? "0" + seconds : seconds
+
+            //计算毫秒
+            var milliSeconds = _minutes % 1000
+            milliSeconds = milliSeconds < 100 ? "0" + milliSeconds : milliSeconds
+
+            var str = "距离您的生日还有" + day + "天" + hours + "时" + minutes + "分" + seconds + "秒" + milliSeconds + "毫秒"
+            oCon.textContent = str;
+        }, 10)
+    </script>
+</body>
+
+</html>

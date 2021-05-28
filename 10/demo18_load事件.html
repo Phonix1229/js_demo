@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./images/01.jpg" id="img">
+
+    <script>
+
+        /* 
+            load事件
+                当资源加载完成后触发(绑定给img、audio等)
+
+            window.load事件
+                当节点全部加载完成，并且所有资源也全部加载完成后触发
+        
+        */
+
+        var oImg = document.getElementById("img");
+
+
+        window.onload = function (){
+            //获取图片的宽度
+            console.log(oImg.offsetWidth);//2300
+        }
+
+        oImg.onload = function (){
+            //获取图片的宽度
+            console.log(oImg.offsetWidth);//2300
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        img {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="f">
+        <img src="./test.jpg" />
+        <!-- 后面的div形成新的BFc，不受外部元素的影响 -->
+        <div style="border:10px solid green;display:flow-root;">123456</div>
+    </div>
+</body>
+
+</html>

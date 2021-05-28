@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+
+        /* 
+            替换节点
+                A.replaceChild(new,old)，其中A是父元素，把new替换old
+        */
+
+        var oBox = document.querySelector(".box");
+        var oBtn = document.getElementById("btn");
+        var oLis = document.querySelectorAll(".box li");
+
+        oBtn.onclick = function () {
+
+            //新元素替换
+            // var newLi = document.createElement("li");
+            // newLi.textContent="我是靓仔";
+            // oBox.replaceChild(newLi,oLis[2])
+
+
+            //旧元素替换，将下标为1的元素替换掉下标为3
+            oBox.replaceChild(oLis[1],oLis[3]);
+            
+        }
+    </script>
+</body>
+
+</html>

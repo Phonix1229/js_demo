@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* 
+            局部作用域
+        */
+
+        //声明一个全局变量
+        var a = 1;
+
+        // 声明一个全局函数
+        function fn1() {
+
+            //声明一个局部变量，因为是局部函数fn1中的变量，所以只能在fn1中访问
+            var b = 2;
+
+            // 因为变量a是全局变量，所以也可以在局部访问
+            console.log(a);
+            console.log(b);
+
+            var d = 6;
+            // fn2是fn1中的一个局部函数，只能在fn1中访问
+            function fn2() {
+
+                //因为a和b分别是fn2的父作用域和祖作用域中的变量，所以fn2也可以使用
+                console.log(a, b);
+
+                var c = 3;
+
+                //如果此作用域的变量和祖辈作用域的变量重名了，那么是以此作用域的为准
+                var d = 5;
+                console.log(d);
+
+                //获取到全局变量a，然后把a的值改了
+                a = 9;
+
+            }
+            fn2();
+
+        }
+        fn1()
+        console.log(a);
+        // console.log(b); //ReferenceError，未定义的
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //手写apply
+
+        Function.prototype.myApply = function (context) {
+            //如果context是null或者undefined，则context应该为window
+            if (context === null || context === undefined) {
+                context = window;
+            }
+            //如果context是基本数据类型，则context应该为基本包装对象
+            if (context !== "object" && context !== "function") {
+                context = Object(context);
+            }
+            //如果context 是对象类型，则不进行修改
+
+            //获取实参
+            var arg = arguments[1];
+            
+            //获取时间戳,并转为36进制的字符串
+            var key = Date.now().toString(36);
+
+            //给context创建一个属性，赋值为fn函数，以至将fn的this指向context
+            context[key]=this;
+            //将数组转为字符串，使用eval运行字符串
+            eval("context[key]("+ arg.toString() +")");
+            //因为为了实现逻辑，创建了一个属性，这个属性之后就不用了，所以删除这个属性
+            delete context[key];
+
+        }
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        fn.myApply(1, [1, 2])
+        fn.myApply("1", [1, 2])
+        fn.myApply([], [1, 2])
+        fn.myApply(null, [1, 2])
+        fn.myApply(undefined, [1, 2])
+
+    </script>
+</body>
+
+</html>

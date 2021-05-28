@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  
+            因为提升变量对象的时候，先提升函数
+            function getName() {
+                alert(5)
+            }
+            再提升变量getName，因为重名，但是不能覆盖函数，所以在下面函数表达式中，getName已经被重新赋值了
+            getName = function () {
+                alert(4);
+            }
+        */
+        function Foo() {
+            getName = function () {
+                alert(1);
+            };
+            return this;
+        }
+        Foo.getName = function () {
+            alert(2)
+        }
+        Foo.prototype.getName = function () {
+            alert(3)
+        }
+
+        var getName = function () {
+            alert(4);
+        }
+
+        function getName() {
+            alert(5)
+        }
+        
+        //调用的是Foo的扩展方法，打印2
+        Foo.getName();//2
+        //调用的是全局函数，打印4
+        getName();//4
+        //从左到右，先调用Foo函数，此时，Foo函数将全局变量getName重新赋值，并且返回this，这个this指向window，所以下面表达式相当于window.getName()，找的是全局变量中的，所以打印1
+        Foo().getName();//1
+        //此时的getName已经被上一句代码重新赋值，所以打印的是1
+        getName();//1
+
+        
+        new Foo.getName();
+        new Foo().getName();
+        new new Foo().getName();
+
+    </script>
+</body>
+
+</html>

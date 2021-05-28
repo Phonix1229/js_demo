@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    今天天气真好
+    <script>
+
+        /* 
+            键盘事件中，event事件对象有一个keyCode属性，代表当前的键码
+        
+        */
+
+        // document.onkeydown = function (e) {
+        //     console.log(e.keyCode)
+        // }
+
+        //阻止复制
+        document.onkeydown = function (e) {
+
+            //有个ctrlKey来判断当前是否按下ctrl，按下了值就为true
+
+            if (e.keyCode === 67 && e.ctrlKey) {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
