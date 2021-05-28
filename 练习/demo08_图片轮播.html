@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 750px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .con {
+            width: 750px;
+            height: 600px;
+            display: flex;
+            overflow: hidden;
+
+            position: absolute;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .left,
+        .right {
+            width: 40px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            position: absolute;
+            background-color: rgba(195, 152, 10, .3);
+            top: 50%;
+            transform: translateY(-50%)
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(251, 255, 0, .5);
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="con">
+            <img src="./images/kof-01.jpg" alt="">
+            <img src="./images/kof-02.jpg" alt="">
+            <img src="./images/kof-03.jpg" alt="">
+            <img src="./images/kof-04.jpg" alt="">
+            <img src="./images/kof-05.jpg" alt="">
+        </div>
+        <div class="left">&lt;</div>
+        <div class="right">&gt;</div>
+        <ul class="list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <script>
+        let oCon = document.querySelector('.con')
+        let oImgs = document.querySelectorAll('.con img')
+
+
+        let autoTimer = null;
+        let moveTimer = null;
+
+        i = 0;
+        autoTimer = setInterval(function () {
+            clearInterval(moveTimer)
+            i++;
+            if (i >= oImgs.length) {
+                i = 0;
+            }
+            //初始化起始步数
+            let startStep = 0;
+
+            //初始化结束步数
+            let endStep = 40;
+
+            //获取当前滚动条的起始位置
+            let startLocation = oCon.scrollLeft;
+
+            //获取滚动条的结束位置
+            let endLocation = oImgs[0].offsetWidth * i;
+
+            //计算每一步滚动条走的距离
+            let everyStep = (endLocation - startLocation) / endStep
+
+            moveTimer = setInterval(function () {
+
+                startStep++;
+
+                if (startStep >= endStep) {
+                    clearInterval(moveTimer)
+                }
+
+                startLocation += everyStep;
+
+                oCon.scrollLeft = startLocation;
+            }, 20)
+
+        }, 2000)
+    </script>
+</body>
+
+</html>

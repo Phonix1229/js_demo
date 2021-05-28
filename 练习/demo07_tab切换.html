@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,
+        h3 {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #outer {
+            margin: 0 auto;
+            width: 600px;
+            height: 480px;
+            border: 1px solid #000;
+        }
+
+        .title {
+            display: flex;
+        }
+
+        .title h3 {
+            width: 200px;
+            height: 80px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 80px;
+            font-size: 30px;
+        }
+
+        .title h3.active {
+            background-color: red;
+            color: #fff;
+        }
+
+        .con {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .con li {
+            width: 600px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .con li:nth-of-type(1) {
+            background-color: skyblue;
+        }
+
+        .con li:nth-of-type(2) {
+            background-color: springgreen;
+        }
+
+        .con li:nth-of-type(3) {
+            background-color: sandybrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="title">
+            <h3 class="active">标题1</h3>
+            <h3>标题2</h3>
+            <h3>标题3</h3>
+        </div>
+
+        <ul class="con">
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+    <script>
+        let oTitles = document.querySelectorAll('.title h3')
+        let oLis = document.querySelectorAll('.con li')
+        let oCon = document.querySelector('.con')
+
+
+        //初始化一个定时器
+        let timer = null;
+
+
+        oTitles.forEach(function (item, index) {
+            item.onclick = function () {
+                //每次电器都清除上一次的定时器
+                clearInterval(timer)
+                //先清空所有标题的样式
+                oTitles.forEach(function (item, index) {
+                    item.classList.remove('active')
+                })
+                //给当前点击的标题h3添加样式
+                this.classList.add('active')
+
+                //声明一个初始位置，值为当前滚动条的位置
+                let startLocation = oCon.scrollTop;
+
+                // 获取结束位置
+                let endLocation = oLis[0].offsetHeight * index;
+
+                //初始化起始步数
+                let startStep = 0;
+
+                //初始化结束步数
+                let endStep = 40;
+
+                //计算每一步走的距离
+                let everyStep = (endLocation - startLocation) / endStep;
+
+                timer = setInterval(function () {
+
+                    //起始步数累加
+                    startStep++;
+                    if (startStep === endStep) {
+                        clearInterval(timer)
+                    }
+                    //起始位置累加每一步走的距离
+                    startLocation += everyStep;
+
+                    oCon.scrollTop = startLocation;
+
+
+                }, 1000 / 60)
+
+            }
+        })
+    </script>
+</body>
+
+</html>
